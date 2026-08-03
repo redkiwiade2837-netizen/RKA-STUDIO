@@ -1,0 +1,8 @@
+{
+  "installCommand": "npm --prefix rka-app install",
+  "buildCommand": "npm --prefix rka-app run build",
+  "outputDirectory": "rka-app/dist",
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/index.html" }
+  ]
+}
