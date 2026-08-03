@@ -46,11 +46,19 @@ export function mediaSyncPlugin() {
   function syncMedia() {
     const manifest = {};
 
+    console.log(`[media-sync] appRoot=${appRoot}`);
+    console.log(`[media-sync] repoRoot=${repoRoot}`);
+    console.log(`[media-sync] repoRoot exists=${fs.existsSync(repoRoot)}`);
+    if (fs.existsSync(repoRoot)) {
+      console.log(`[media-sync] repoRoot contents=${fs.readdirSync(repoRoot).join(', ')}`);
+    }
+
     fs.rmSync(publicMediaDir, { recursive: true, force: true });
 
     for (const [folderName, key] of CATEGORIES) {
       const categoryDir = path.join(repoRoot, folderName);
       const products = [];
+      console.log(`[media-sync] ${folderName}: categoryDir=${categoryDir} exists=${fs.existsSync(categoryDir)}`);
 
       if (fs.existsSync(categoryDir)) {
         const entries = fs
@@ -88,6 +96,7 @@ export function mediaSyncPlugin() {
         }
       }
 
+      console.log(`[media-sync] ${folderName}: found ${products.length} product(s)`);
       manifest[key] = products;
     }
 
