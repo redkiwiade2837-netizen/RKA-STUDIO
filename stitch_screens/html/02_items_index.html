@@ -1,0 +1,236 @@
+<!DOCTYPE html><html class="light" lang="en" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>RKA - Items</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary": "#000000",
+                        "on-primary-fixed-variant": "#474747",
+                        "on-surface-variant": "#4c4546",
+                        "on-error-container": "#93000a",
+                        "inverse-primary": "#c6c6c6",
+                        "on-secondary": "#ffffff",
+                        "on-surface": "#1a1c1c",
+                        "on-tertiary-fixed-variant": "#474747",
+                        "surface-variant": "#e2e2e2",
+                        "primary-fixed-dim": "#c6c6c6",
+                        "surface": "#f9f9f9",
+                        "on-secondary-fixed-variant": "#464747",
+                        "on-primary-container": "#848484",
+                        "primary-fixed": "#e2e2e2",
+                        "inverse-on-surface": "#f0f1f1",
+                        "error": "#ba1a1a",
+                        "secondary-fixed": "#e3e2e2",
+                        "inverse-surface": "#2f3131",
+                        "surface-container-highest": "#e2e2e2",
+                        "tertiary-container": "#1b1b1b",
+                        "on-secondary-container": "#646464",
+                        "secondary-fixed-dim": "#c7c6c6",
+                        "surface-container": "#eeeeee",
+                        "text-primary": "#000000",
+                        "on-tertiary-fixed": "#1b1b1b",
+                        "error-container": "#ffdad6",
+                        "on-error": "#ffffff",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary": "#5e5e5e",
+                        "tertiary": "#000000",
+                        "on-tertiary": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "primary-container": "#1b1b1b",
+                        "on-primary-fixed": "#1b1b1b",
+                        "secondary-container": "#e3e2e2",
+                        "surface-container-low": "#f3f3f4",
+                        "on-tertiary-container": "#848484",
+                        "outline-variant": "#cfc4c5",
+                        "outline": "#7e7576",
+                        "surface-dim": "#dadada",
+                        "on-background": "#1a1c1c",
+                        "surface-bright": "#f9f9f9",
+                        "border-subtle": "#EEEEEE",
+                        "on-secondary-fixed": "#1b1c1c",
+                        "tertiary-fixed": "#e2e2e2",
+                        "tertiary-fixed-dim": "#c6c6c6",
+                        "text-muted": "#888888",
+                        "surface-tint": "#5e5e5e",
+                        "background": "#FFFFFF",
+                        "surface-container-high": "#e8e8e8"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "page-margin": "20px",
+                        "item-gap": "8px",
+                        "stack-gap": "4px",
+                        "gutter": "16px",
+                        "section-gap": "32px"
+                    },
+                    "fontFamily": {
+                        "project-number": ["Inter"],
+                        "label-caps": ["Inter"],
+                        "page-title": ["Inter"],
+                        "body": ["Inter"],
+                        "section-header": ["Inter"],
+                        "caption": ["Inter"],
+                        "body-bold": ["Inter"]
+                    },
+                    "fontSize": {
+                        "project-number": ["14px", { "lineHeight": "1.4", "fontWeight": "700" }],
+                        "label-caps": ["14px", { "lineHeight": "1.4", "fontWeight": "700" }],
+                        "page-title": ["18px", { "lineHeight": "1.4", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+                        "body": ["14px", { "lineHeight": "1.4", "fontWeight": "400" }],
+                        "section-header": ["15px", { "lineHeight": "1.4", "fontWeight": "700" }],
+                        "caption": ["12px", { "lineHeight": "1.4", "fontWeight": "400" }],
+                        "body-bold": ["14px", { "lineHeight": "1.4", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { background-color: #ffffff; color: #000000; font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; }
+        .hover-swap-img:hover .primary-img { display: none; }
+        .hover-swap-img:hover .secondary-img { display: block; }
+        .secondary-img { display: none; }
+        .grayscale-filter { filter: grayscale(100%); transition: filter 0.3s ease; }
+        .hover-swap-img:hover .grayscale-filter { filter: grayscale(0%); }
+    </style>
+</head>
+<body class="bg-background text-primary font-body antialiased selection:bg-surface-variant selection:text-primary">
+<!-- TopNavBar Shared Component -->
+<header class="flex flex-col gap-stack-gap w-full px-page-margin pt-gutter bg-background transition-all duration-100 ease-linear">
+<div class="flex items-center gap-2"><h1 class="font-body-bold text-body text-primary">RKA</h1></div>
+<nav class="flex items-center gap-6 mt-2">
+<a class="font-body-bold text-body text-text-muted hover:text-secondary transition-colors" href="#">Projects</a>
+<a class="font-body-bold text-body text-text-muted hover:text-secondary transition-colors" href="#">Furniture</a>
+<a class="font-body-bold text-body text-primary border-b border-primary hover:text-secondary transition-colors" href="#">Items</a>
+<a class="font-body-bold text-body text-text-muted hover:text-secondary transition-colors" href="#">About</a>
+</nav>
+</header>
+<!-- Main Content Area -->
+<main class="flex flex-col md:flex-row w-full mt-section-gap px-page-margin pb-section-gap">
+<!-- SideNavBar Shared Component -->
+<aside class="w-full md:w-48 flex-shrink-0 mb-section-gap md:mb-0 pr-gutter">
+<nav class="flex flex-col gap-section-gap">
+<!-- Filter Group: Index -->
+<div class="flex flex-col gap-stack-gap">
+<h2 class="font-section-header text-section-header text-primary mb-2">Index</h2>
+<ul class="flex flex-col gap-1">
+<li class=""><a class="font-body-bold text-body text-primary underline hover:underline" href="#">01–25</a></li>
+<li class=""><a class="font-body text-body text-primary hover:underline" href="#">26–50</a></li>
+<li class=""><a class="font-body text-body text-primary hover:underline" href="#">51–75</a></li>
+</ul>
+</div>
+<!-- Filter Group: Type -->
+<div class="flex flex-col gap-stack-gap">
+<h2 class="font-section-header text-section-header text-primary mb-2">Type</h2>
+<ul class="flex flex-col gap-1">
+<li class=""><a class="font-body text-body text-primary hover:underline" href="#">Stationery</a></li>
+<li class=""><a class="font-body text-body text-primary hover:underline" href="#">Desk Objects</a></li>
+<li class=""><a class="font-body text-body text-primary hover:underline" href="#">Tools</a></li>
+</ul>
+</div>
+<!-- Filter Group: Status -->
+<div class="flex flex-col gap-stack-gap">
+<h2 class="font-section-header text-section-header text-primary mb-2">Status</h2>
+<ul class="flex flex-col gap-1">
+<li class=""><a class="font-body text-body text-primary hover:underline" href="#">Available</a></li>
+<li class=""><a class="font-body text-body text-primary hover:underline" href="#">Archived</a></li>
+</ul>
+</div>
+<!-- Filter Group: Location -->
+<div class="flex flex-col gap-stack-gap">
+<h2 class="font-section-header text-section-header text-primary mb-2">Location</h2>
+<ul class="flex flex-col gap-1">
+<li class=""><a class="font-body text-body text-primary hover:underline" href="#">Zurich</a></li>
+<li class=""><a class="font-body text-body text-primary hover:underline" href="#">Milan</a></li>
+<li class=""><a class="font-body text-body text-primary hover:underline" href="#">Tokyo</a></li>
+</ul>
+</div>
+</nav>
+</aside>
+<!-- Main Grid Area -->
+<section class="flex-grow">
+<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-gutter">
+<!-- Item 1 -->
+<article class="flex flex-col group cursor-pointer hover-swap-img">
+<div class="mb-item-gap">
+<span class="font-project-number text-project-number">01</span>
+<span class="font-label-caps text-label-caps uppercase mx-1">PRECISION PENCIL</span>
+<span class="font-body text-body">– Zurich</span>
+</div>
+<div class="aspect-square bg-surface-container overflow-hidden w-full relative">
+<img class="w-full h-full object-cover grayscale-filter primary-img transition-opacity duration-300 group-hover:opacity-80" data-alt="A minimalist overhead grayscale photograph of a sleek, brushed aluminum mechanical pencil resting on a stark white textured paper background. The lighting is harsh and directional, creating strong, architectural shadows that emphasize the pencil's precise, engineered form. Brutalist and utilitarian aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD1wLoIi2n5MWEG-yh71v3gaC138J1UG2n15inq_1rjmRUj33gJ-JXDvWB_bb-caOXbjYvcIpdm4cM6_njsda_fzMj9Sh4WaAdNagnlugJ_xAeZT1ALi7eJHiSjfYgCVKkWAv8ZzhyxdkYFalzODnObOZxGhSRV8XWZRlkATJoxth_ugjbvfZSfgvpMh-vm02C2MSQePq13zHMPC-hlPYjULjkL0ZQsJmEFCVZn-Lu4ktK_xhpvDCGv">
+<img class="w-full h-full object-cover grayscale-filter secondary-img transition-opacity duration-300 group-hover:opacity-80" data-alt="A detailed, technical grayscale macro shot of a mechanical pencil's internal mechanism disassembled and laid out neatly on a grid cutting mat. High contrast, sharp focus, emphasizing precision engineering and raw materials in a minimalist, brutalist style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA8YoxfmT0wxN3RFIvvImDkh9YEaC9THXqjGGXFKUmtBZiwJn8eAKEuABjfseQXONNcPXa77cqKRFLUPIfF4SXez3cX4-F0Ku8KA47MvXoQ5qEjJ_aHWwWGmwMQQrRO_hOQwROwgnx48RWjrOyvrsd--Di3TDw-F0DvaNHTYKFT5OWwm1_FVt6nT9uybXpTrdO5ELX_B44UjbCNmsaYrS65rxlNqhoGbAdFHp7o3LrES-mylcMKlUSc">
+</div>
+</article>
+<!-- Item 2 -->
+<article class="flex flex-col group cursor-pointer hover-swap-img">
+<div class="mb-item-gap">
+<span class="font-project-number text-project-number">02</span>
+<span class="font-label-caps text-label-caps uppercase mx-1">STEEL PAPERCLIP</span>
+<span class="font-body text-body">– Milan</span>
+</div>
+<div class="aspect-square bg-surface-container overflow-hidden w-full relative">
+<img class="w-full h-full object-cover grayscale-filter primary-img transition-opacity duration-300 group-hover:opacity-80" data-alt="A macro grayscale photograph of an oversized, heavy-gauge steel paperclip resting on a concrete surface. The stark, diffused lighting highlights the raw metal texture and the utilitarian, brutalist form of the object. Minimalist, high-contrast, industrial aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD_E8KgHdmUOspz_QvjMz-FyOGvIx3831Mlj_pGzW8GMxmBTNhOq3wcWbmFUTABBWoXIqQZaLRMmWpoZbGrOTa5PaId03X7y19xuihYYLNXT9d-W7Uae0jNlFnUPYOcrrpOsCLyTTKRTlNlZqloG4ieffMksMZwywe6oBKSD9e1QpK1LvM4hHdl3Eli9GyOu4xGmF4ORNHY37ExpCqWWMAfjs8UquE1lcNyV93hKT5zYAYXakT6_SNs">
+<img class="w-full h-full object-cover grayscale-filter secondary-img transition-opacity duration-300 group-hover:opacity-80" data-alt="A close-up grayscale shot showing several steel paperclips scattered precisely on architectural blueprints. The stark contrast between the bright steel and the dark graphite lines of the drawings creates a dense, information-heavy, minimalist composition." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBZ7XJefS-7Bxpa8iLjOaisW_j0Gmfwjjm4l1hzW66t_pwC_js5wHIaRP0CSKsmG8F7l1UOCjYf6u7GuJ3nouyFekGH17wl4W2JpiUqloec4g7ujgX6_Mjg7S4vUFB0dA7dH6_vypUYEtTuRz31-sgdlJAbzZ1ehxitqwd5qOPYhvkgi1uLPgIGU8b2YUy8H7_5pl0AE-ut5WSL27ybfvjlPiijgwVN5FIjUrjFGRw46r8htqPYj2uh">
+</div>
+</article>
+<!-- Item 3 -->
+<article class="flex flex-col group cursor-pointer hover-swap-img">
+<div class="mb-item-gap">
+<span class="font-project-number text-project-number">03</span>
+<span class="font-label-caps text-label-caps uppercase mx-1">CONCRETE DESK TRAY</span>
+<span class="font-body text-body">– Berlin</span>
+</div>
+<div class="aspect-square bg-surface-container overflow-hidden w-full relative">
+<img class="w-full h-full object-cover grayscale-filter primary-img transition-opacity duration-300 group-hover:opacity-80" data-alt="A stark grayscale photograph of a brutalist, geometric concrete desk tray on a plain white table. The harsh, angled lighting casts deep, sharp shadows, emphasizing the weight, raw texture, and monolithic presence of the object in a minimalist setting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBf7WRa_hbcIWv-iqq7MH9SHfeukNMCJRfI_IOudKCtog764Ea3A7uFI1eDBDIpiNxePf2XRm0hB-t3K-SvHISy6mHrdOTtJ4qY6mrkOUoj_Q2oqUNiXUJl1J078zgDnC5Umr21gNEv514N8LU03Qd5DupSR50rroyCAJo82d-UzNy5idEy2J7xYuMDqt1QU7kOsYlIiLVPE7MpvnK_-S1sBHjaT_pDylv56l3MupJz2ia1XLNpHLUr">
+<img class="w-full h-full object-cover grayscale-filter secondary-img transition-opacity duration-300 group-hover:opacity-80" data-alt="A top-down grayscale photograph of the same concrete desk tray, now holding a single architectural scale ruler and a pencil. The arrangement is strictly orthogonal, reflecting a highly organized, dense, utilitarian design philosophy." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCdt5jG7dhRo2U6EJ5r9IZRjJxH8OEtjyKJ0vAbHdI2viVwy1-sm8f7oVQbwdCZnbYXXvvXheEhpIVOOxZD6IbOzsO2qn4glu4JeQqf_dDy_EXItZQdEM6QAjHz70_sCodi0E9MYC8vhNSnfZRl5GFUWy96YTRC1xnrI0hhqtvod3_wSXzYVLX7X0bdLGXNvYUoBwNmB2FSD9mx1k_QX1fhRMoJrOvz5HaormpX2X0TVsc-TVlc6ZQ_">
+</div>
+</article>
+<!-- Item 4 -->
+<article class="flex flex-col group cursor-pointer hover-swap-img">
+<div class="mb-item-gap">
+<span class="font-project-number text-project-number">04</span>
+<span class="font-label-caps text-label-caps uppercase mx-1">GRAPHITE STICK</span>
+<span class="font-body text-body">– Tokyo</span>
+</div>
+<div class="aspect-square bg-surface-container overflow-hidden w-full relative">
+<img class="w-full h-full object-cover grayscale-filter primary-img transition-opacity duration-300 group-hover:opacity-80" data-alt="A minimalist grayscale image of a thick, raw, unrefined graphite stick lying diagonally across a pristine white sheet of drafting paper. The lighting is soft but high-contrast, highlighting the powdery texture and dark, dense nature of the graphite against the void-like background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBWTrqoSJvtH4saLAdBdE3jIAzLjAlYFVX0VtRuPWL1egxMJXgl946EL-d6xHz1xJq5GWXyb_3Q7gkODap8w94-priMxfdQ2ayU1yz77AhahfgPbqZ2pojJokw60H-KbQTd572fFqtYzN2slm8I0MG_wUxx97u8fqUbyqP_xOjAWljacGm-AJgcRflim-sl_TDO15uXymVM7Epeq6Yd1WRxZXFoSt-XZVdeTnmCT4bMZ3rb7bt80_kE">
+<img class="w-full h-full object-cover grayscale-filter secondary-img transition-opacity duration-300 group-hover:opacity-80" data-alt="A macro grayscale shot focusing on the rough, broken end of a graphite stick, showing its crystalline, almost geological texture. The stark, direct lighting emphasizes the brutal, raw material quality of the object in an austere setting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCOrkrY3OJpszrbew7hoxTIEmzpvDkbv_yzlSgGU_6SwPl8mGU71FSARWjAfrqTpskxepOP0JaQy-zZKsiYURMdZuqHXNlO-KywvdUQcxTI4AjHGKcJJnPHwysdDu7-Zrpv08gL3g0UTsLIKsVOemAPj3tNZdjKUKju32vgyG9SY5-SNIhV8XoeKRL_dD3QGV0sqmqfpD6DyRb_xNLrTqqJC0RZydPsgviU8n2z57YEj2ovdPaSiI8Q">
+</div>
+</article>
+<!-- Item 5 -->
+<article class="flex flex-col group cursor-pointer hover-swap-img">
+<div class="mb-item-gap">
+<span class="font-project-number text-project-number">05</span>
+<span class="font-label-caps text-label-caps uppercase mx-1">BRASS RULER</span>
+<span class="font-body text-body">– Oslo</span>
+</div>
+<div class="aspect-square bg-surface-container overflow-hidden w-full relative">
+<img class="w-full h-full object-cover grayscale-filter primary-img transition-opacity duration-300 group-hover:opacity-80" data-alt="A precise grayscale photograph of a heavy, solid brass architect's scale ruler resting horizontally on a dark, slate-like surface. The lighting catches the precise etched markings along the edge, emphasizing utilitarian design, dense information, and brutalist minimalism." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCfQ7qDG36cQSDCnv46F4AuM1DF7Hri4G6KZwmDVFW1q-m1YeurUZcKeZpw7iht6YDS9gGlKIF4sUdsULCfr1zZm3nhYFmmaBnQF8E6-WSz8xmh-W4lVzmcDBEDZtNw5SEEcJpLOt8FyK2vB1X4huvkmUFaXfE9Ku9w0lzdarFaEW_LTunZinVhoWtXAyhqwQnTLEs9tGKMqmvMm2pVTDXyqjBsojxHskegVb_F7TfEdYAF1vG-IqrV">
+<img class="w-full h-full object-cover grayscale-filter secondary-img transition-opacity duration-300 group-hover:opacity-80" data-alt="A close-up grayscale image showing the detailed, etched millimeter markings on a brass ruler. The shallow depth of field creates a sense of extreme precision and focus, fitting an intellectual, architectural visual identity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD0J-NJ3e7gDBh3K0zrCqd_iuxwAzvvxD2woNtz3pYfr8mdQIuHavnNYyNVlqz2QDoDH_owSI776LVmEUrwcX0wR2_2uF8XYg2NgkO-8sMyLWB6I9_g8uHqh5fq-0yj_9j8oWwC2PiWf9OVAMn2a_4BgMKNArW1gUKoekkBjTMZCNrGLyF7bLLwX2rlYeqMXIVVknwFZtDTbSypiZQBUK5itaoiC9ZIIy2vqwPtMpxRM0-sSarAnLi2">
+</div>
+</article>
+</div>
+</section>
+</main>
+<!-- Footer Shared Component -->
+<footer class="flex justify-between items-center w-full px-page-margin py-gutter bg-background border-t border-border-subtle mt-section-gap">
+<div class="flex gap-4">
+<a class="font-caption text-caption text-primary hover:text-secondary transition-colors" href="#">Instagram</a>
+<a class="font-caption text-caption text-primary hover:text-secondary transition-colors" href="#">Contact</a>
+</div>
+</footer>
+</body></html>

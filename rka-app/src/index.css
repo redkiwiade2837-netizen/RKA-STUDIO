@@ -1,0 +1,119 @@
+@import "tailwindcss";
+
+@theme {
+  /* ── Colors ─────────────────────────────────── */
+  --color-primary: #000000;
+  --color-background: #FFFFFF;
+  --color-surface: #f9f9f9;
+  --color-secondary: #5e5e5e;
+  --color-text-muted: #888888;
+  --color-text-primary: #000000;
+  --color-border-subtle: #EEEEEE;
+  --color-surface-container: #eeeeee;
+  --color-surface-container-high: #e8e8e8;
+  --color-surface-container-highest: #e2e2e2;
+  --color-surface-container-low: #f3f3f4;
+  --color-surface-variant: #e2e2e2;
+  --color-surface-dim: #dadada;
+  --color-surface-bright: #f9f9f9;
+  --color-surface-tint: #5e5e5e;
+  --color-on-surface: #1a1c1c;
+  --color-on-primary: #ffffff;
+  --color-on-secondary: #ffffff;
+  --color-outline: #7e7576;
+  --color-outline-variant: #cfc4c5;
+  --color-inverse-surface: #2f3131;
+  --color-inverse-on-surface: #f0f1f1;
+  --color-primary-container: #1b1b1b;
+  --color-on-primary-container: #848484;
+
+  /* ── Spacing ─────────────────────────────────── */
+  --spacing-stack-gap: 4px;
+  --spacing-item-gap: 8px;
+  --spacing-gutter: 16px;
+  --spacing-section-gap: 32px;
+  --spacing-page-margin: 20px;
+
+  /* ── Border Radius ───────────────────────────── */
+  --radius-DEFAULT: 0.25rem;
+  --radius-lg: 0.5rem;
+  --radius-xl: 0.75rem;
+  --radius-full: 9999px;
+
+  /* ── Font Family ─────────────────────────────── */
+  --font-sans: 'Inter', sans-serif;
+}
+
+@layer base {
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; }
+
+  body {
+    background-color: #FFFFFF;
+    color: #000000;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    line-height: 1.4;
+  }
+
+  /* Typography helpers */
+  .text-page-title   { font-size: 18px; font-weight: 700; line-height: 1.4; letter-spacing: -0.01em; }
+  .text-section-header { font-size: 15px; font-weight: 700; line-height: 1.4; }
+  .text-body-bold    { font-size: 14px; font-weight: 700; line-height: 1.4; }
+  .text-body         { font-size: 14px; font-weight: 400; line-height: 1.4; }
+  .text-label-caps   { font-size: 14px; font-weight: 700; line-height: 1.4; }
+  .text-project-number { font-size: 14px; font-weight: 700; line-height: 1.4; }
+  .text-caption      { font-size: 12px; font-weight: 400; line-height: 1.4; }
+}
+
+@layer components {
+  /* ── Input ── */
+  .input-brutal {
+    width: 100%;
+    border: 0;
+    border-bottom: 1px solid #000;
+    background: transparent;
+    padding: 8px 0;
+    font-size: 14px;
+    line-height: 1.4;
+    color: #000;
+    border-radius: 0;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  .input-brutal:focus { border-bottom-color: #000; }
+  .input-brutal::placeholder { color: #888; }
+
+  /* ── Buttons ── */
+  .btn-primary {
+    width: 100%;
+    background: #000;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 700;
+    padding: 14px;
+    text-align: center;
+    cursor: pointer;
+    border: none;
+    transition: background 0.2s;
+    border-radius: 0;
+  }
+  .btn-primary:hover { background: #5e5e5e; }
+
+  /* ── Image hover swap ── */
+  .img-swap-wrap .img-secondary { display: none; }
+  .img-swap-wrap:hover .img-primary { display: none; }
+  .img-swap-wrap:hover .img-secondary { display: block; }
+
+  /* ── Hover crossfade ── */
+  .img-hover-fade .img-secondary {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  .img-hover-fade:hover .img-secondary { opacity: 1; }
+  .img-hover-fade .img-primary {
+    transition: opacity 0.3s ease;
+  }
+  .img-hover-fade:hover .img-primary { opacity: 0; }
+}

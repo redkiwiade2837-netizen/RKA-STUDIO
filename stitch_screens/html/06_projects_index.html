@@ -1,0 +1,287 @@
+<!DOCTYPE html><html class="light" lang="en" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>RKA - Projects</title>
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "inverse-surface": "#2f3131",
+                      "on-primary-container": "#848484",
+                      "on-error": "#ffffff",
+                      "tertiary-fixed-dim": "#c6c6c6",
+                      "primary-container": "#1b1b1b",
+                      "primary": "#000000",
+                      "secondary-fixed": "#e3e2e2",
+                      "text-muted": "#888888",
+                      "background": "#FFFFFF",
+                      "secondary": "#5e5e5e",
+                      "on-secondary-fixed-variant": "#464747",
+                      "on-secondary-container": "#646464",
+                      "tertiary-container": "#1b1b1b",
+                      "surface": "#f9f9f9",
+                      "surface-container-high": "#e8e8e8",
+                      "on-primary-fixed-variant": "#474747",
+                      "error-container": "#ffdad6",
+                      "on-surface": "#1a1c1c",
+                      "surface-container-low": "#f3f3f4",
+                      "surface-container": "#eeeeee",
+                      "border-subtle": "#EEEEEE",
+                      "secondary-container": "#e3e2e2",
+                      "on-primary": "#ffffff",
+                      "tertiary": "#000000",
+                      "on-primary-fixed": "#1b1b1b",
+                      "on-tertiary-fixed": "#1b1b1b",
+                      "outline-variant": "#cfc4c5",
+                      "on-error-container": "#93000a",
+                      "surface-container-highest": "#e2e2e2",
+                      "on-secondary-fixed": "#1b1c1c",
+                      "error": "#ba1a1a",
+                      "surface-variant": "#e2e2e2",
+                      "secondary-fixed-dim": "#c7c6c6",
+                      "on-tertiary-fixed-variant": "#474747",
+                      "tertiary-fixed": "#e2e2e2",
+                      "text-primary": "#000000",
+                      "surface-tint": "#5e5e5e",
+                      "inverse-primary": "#c6c6c6",
+                      "on-background": "#1a1c1c",
+                      "surface-bright": "#f9f9f9",
+                      "primary-fixed-dim": "#c6c6c6",
+                      "on-secondary": "#ffffff",
+                      "on-tertiary": "#ffffff",
+                      "surface-dim": "#dadada",
+                      "on-tertiary-container": "#848484",
+                      "outline": "#7e7576",
+                      "on-surface-variant": "#4c4546",
+                      "inverse-on-surface": "#f0f1f1",
+                      "primary-fixed": "#e2e2e2",
+                      "surface-container-lowest": "#ffffff"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "stack-gap": "4px",
+                      "gutter": "16px",
+                      "section-gap": "32px",
+                      "item-gap": "8px",
+                      "page-margin": "20px"
+              },
+              "fontFamily": {
+                      "label-caps": [
+                              "Inter"
+                      ],
+                      "page-title": [
+                              "Inter"
+                      ],
+                      "project-number": [
+                              "Inter"
+                      ],
+                      "body": [
+                              "Inter"
+                      ],
+                      "body-bold": [
+                              "Inter"
+                      ],
+                      "section-header": [
+                              "Inter"
+                      ],
+                      "caption": [
+                              "Inter"
+                      ]
+              },
+              "fontSize": {
+                      "label-caps": [
+                              "14px",
+                              {
+                                      "lineHeight": "1.4",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "page-title": [
+                              "18px",
+                              {
+                                      "lineHeight": "1.4",
+                                      "letterSpacing": "-0.01em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "project-number": [
+                              "14px",
+                              {
+                                      "lineHeight": "1.4",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "body": [
+                              "14px",
+                              {
+                                      "lineHeight": "1.4",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "body-bold": [
+                              "14px",
+                              {
+                                      "lineHeight": "1.4",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "section-header": [
+                              "15px",
+                              {
+                                      "lineHeight": "1.4",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "caption": [
+                              "12px",
+                              {
+                                      "lineHeight": "1.4",
+                                      "fontWeight": "400"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+    </script>
+</head>
+<body class="bg-background text-primary font-body antialiased selection:bg-surface-variant selection:text-primary">
+<!-- TopNavBar -->
+<header class="flex flex-col gap-stack-gap w-full px-page-margin pt-gutter bg-background transition-all duration-100 ease-linear">
+<div class="flex items-center gap-2">
+<h1 class="font-body-bold text-body text-primary">RKA</h1>
+</div>
+<nav class="flex items-center gap-6 mt-2">
+<a class="font-body-bold text-body text-primary border-b border-primary hover:text-secondary transition-colors" href="#">Projects</a>
+<a class="font-body-bold text-body text-text-muted hover:text-secondary transition-colors" href="#">Furniture</a>
+<a class="font-body-bold text-body text-text-muted hover:text-secondary transition-colors" href="#">Items</a>
+<a class="font-body-bold text-body text-text-muted hover:text-secondary transition-colors" href="#">About</a>
+</nav>
+</header>
+<main class="flex flex-col md:flex-row w-full mt-section-gap px-page-margin pb-section-gap">
+<!-- SideNavBar -->
+<aside class="w-full md:w-48 flex-shrink-0 mb-section-gap md:mb-0 pr-gutter">
+<nav class="flex flex-col gap-section-gap">
+<div class="flex flex-col gap-stack-gap">
+<h2 class="font-section-header text-section-header text-primary mb-2">Index</h2>
+<ul class="flex flex-col gap-1">
+<li class=""><a class="font-body-bold text-body text-primary underline hover:underline" href="#">All Years</a></li>
+<li class=""><a class="font-body text-body text-primary hover:underline" href="#">2024</a></li>
+<li class=""><a class="font-body text-body text-primary hover:underline" href="#">2023</a></li>
+<li class=""><a class="font-body text-body text-primary hover:underline" href="#">2022</a></li>
+</ul>
+</div>
+<div class="flex flex-col gap-stack-gap">
+<h2 class="font-section-header text-section-header text-primary mb-2">Type</h2>
+<ul class="flex flex-col gap-1">
+<li class=""><a class="font-body text-body text-primary hover:underline" href="#">Seating</a></li>
+<li class=""><a class="font-body text-body text-primary hover:underline" href="#">Tables</a></li>
+<li class=""><a class="font-body text-body text-primary hover:underline" href="#">Storage</a></li>
+<li class=""><a class="font-body text-body text-primary hover:underline" href="#">Lighting</a></li>
+</ul>
+</div>
+<div class="flex flex-col gap-stack-gap">
+<h2 class="font-section-header text-section-header text-primary mb-2">Status</h2>
+<ul class="flex flex-col gap-1">
+<li class=""><a class="font-body text-body text-primary hover:underline" href="#">Production</a></li>
+<li class=""><a class="font-body text-body text-primary hover:underline" href="#">Prototype</a></li>
+<li class=""><a class="font-body text-body text-primary hover:underline" href="#">Concept</a></li>
+</ul>
+</div>
+<div class="flex flex-col gap-stack-gap">
+<h2 class="font-section-header text-section-header text-primary mb-2">Location</h2>
+<ul class="flex flex-col gap-1">
+<li class=""><a class="font-body text-body text-primary hover:underline" href="#">Zurich</a></li>
+<li class=""><a class="font-body text-body text-primary hover:underline" href="#">Milan</a></li>
+<li class=""><a class="font-body text-body text-primary hover:underline" href="#">Berlin</a></li>
+</ul>
+</div>
+</nav>
+</aside>
+<!-- Project Grid -->
+<section class="flex-grow">
+<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-gutter">
+<!-- Item 1 -->
+<article class="flex flex-col group cursor-pointer">
+<div class="mb-item-gap flex flex-wrap gap-1 items-baseline w-full truncate">
+<span class="font-project-number text-project-number">417</span>
+<span class="font-label-caps text-label-caps uppercase mx-1">MOBILITY HOUSE</span>
+<span class="font-body text-body">– Malmö</span>
+</div>
+<div class="aspect-square bg-surface-container relative overflow-hidden">
+<img class="absolute inset-0 w-full h-full object-cover grayscale transition-opacity duration-300 group-hover:opacity-0" data-alt="A stark, minimalist black and white architectural photograph of a large mobility house in Malmo. Brutalist aesthetic with heavy concrete textures and strict vertical lines. The image should look like a professional architectural monograph print, high contrast, sharp details." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD9IsWi0HTy9SWX3FCise1mzk1w_X_E1_W4IdjtRFXypR9IFztJLUVeOYKC3OJ8_aB-UHlFWy2yVXHOpbkTfM3js7zhbbr2iIXvQ_49nCdN5Kc_XKtkL0FWrlV2TCXA9AVeDbWMItLlxA-UCfFY4D48WwtY4yMBVYuqB3HCVo3k6tZpoUx9767KrDtnS_lCtZhGM8IQvFq62rBvb4PCjzio0q_yOlOVFHzHQQQXjbqFkAUtln_MGhk0">
+<img class="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-300" data-alt="A high contrast black and white architectural technical drawing, floor plan or section of a large parking structure. Crisp, thin lines on a white background, minimalist brutalist presentation style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAkPCeFGZdFgod9FyTKT12pgEZYH7L5fwtCaxTa5_ZsV37PnJ0jRAIFg4x8zUS0vTy9GPoX78h5FR2dtMBZ6lGW76Uv4ur0JHt4kuGt0k35v8JRZgdVVpc6f9hA-XMwXqCMTFwZgS2G9zQRcaBPJzZJmZxyugbzQkmEkwkXBQ9t0v1NmiZAFwqASuOEgNodmUNzC7eWAYAZ2GrIkLvutOlQwD_XuOdzFU-PHzd3e_B5V36YvxkhvWik">
+</div>
+</article>
+<!-- Item 2 -->
+<article class="flex flex-col group cursor-pointer">
+<div class="mb-item-gap flex flex-wrap gap-1 items-baseline w-full truncate">
+<span class="font-project-number text-project-number">412</span>
+<span class="font-label-caps text-label-caps uppercase mx-1">HARBOUR BATH</span>
+<span class="font-body text-body">– Copenhagen</span>
+</div>
+<div class="aspect-square bg-surface-container relative overflow-hidden">
+<img class="absolute inset-0 w-full h-full object-cover grayscale transition-opacity duration-300 group-hover:opacity-0" data-alt="A stark, minimalist black and white architectural photograph of a modern harbour bath in Copenhagen. Geometric wooden structures interacting with the water surface. Brutalist yet elegant aesthetic. The image should look like a professional architectural monograph print, high contrast." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBClF_M-k66rIuxRj_z33rasi-fhhmYJjIrA-CzbIQX9m_B48Hrr9kxffdELkElpVNbOP5TDBRmeJSTOEbKnA67rNGIcEikqO-Kpa_Ah5Aftstau_Wnf7B_R3t-a2IQA_TjMxM7CgX8A-Cm7Ck_vkI_4To6fe1MrH6u_6-mloSvP1FYULw_-0I2HJuTfcX_A5BuHtflObzuD8J85rA0u5wX_J0t6dwt30i_vYkWSmJMi4VdAxmk5iBr">
+<img class="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-300" data-alt="A detailed black and white architectural section drawing of a harbour bath structure. Precise, thin technical linework showing water levels and stepped platforms. Clean, austere presentation." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDrJaWkGf8tpntJzX_mwXYlTWdrKaceW01d1hF4MHnrq2f8qNw952_NEObqryNSIolx0UVMhuwOosPCXt8OIZFYQHDehH71g78D8bDHTC8XwQIvNrkGkUZzbYOXIKJieZl3XFWnmSIaiO3aZd_KS521UpNTtsUkKApGaQEtrFHjvJZ0FCxbjDEe7HqVOzhtRYl-mjDve-Yxw6THmR4i7oF56904jkcMAZof2UH-4X3v2dsXi3Xf76Kw">
+</div>
+</article>
+<!-- Item 3 -->
+<article class="flex flex-col group cursor-pointer">
+<div class="mb-item-gap flex flex-wrap gap-1 items-baseline w-full truncate">
+<span class="font-project-number text-project-number">398</span>
+<span class="font-label-caps text-label-caps uppercase mx-1">ART MUSEUM</span>
+<span class="font-body text-body">– Oslo</span>
+</div>
+<div class="aspect-square bg-surface-container relative overflow-hidden">
+<img class="absolute inset-0 w-full h-full object-cover grayscale transition-opacity duration-300 group-hover:opacity-0" data-alt="A stark, minimalist black and white architectural photograph of a contemporary art museum in Oslo. Large unbroken planes of concrete and glass. Brutalist aesthetic. The image should look like a professional architectural monograph print, high contrast, emphasizing light and shadow." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBJo2-aeclp2AFB0l1ABYI7XtWy9gBiQp0BJJku5c63t07gCVyruW-0kCQdwv4U-dyLTiHA3peFZr-vhJMx3AHO1wzB_cCqV82hpgtAsfSlEVLE__7bvGul4JSFJckPOUYMdt8j-JAEkVK5ZLzMvPlNR7Y97IP1RNKljpQFtuEaQmPnEDRokI1XSiksz_2WFZPWAFPS0w_c9NkaUzg5uIx9ja9EXF31BHR_oJr-nms1Af7U4q0p-PJt">
+<img class="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-300" data-alt="A high contrast black and white architectural floor plan of a contemporary museum. Sharp, thin lines on a white background, showing enfilade gallery spaces and thick structural walls. Minimalist brutalist presentation style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBOkpjUozBOHlSvsguLJpJmCZNR2-0XLlzADyZjFRXYgO7GeXVNsPDa0_6fHmcbGT2Njl5CM7Tre-1bREek76jd4dexWXsYKqYJjAXu7qMVuHiA4aK8KKa6JAjGhUF5f_KtI7aPANnvFxWje8RACDc7APlVF2kFNq_h8rTs8rjD63C5Bzdga5bTRecWpAT-wY_-nqfKN8KGSCb-AWHLchWCJbkPSMSTVAoF0EPQMX4BqUxErQqC3fFa">
+</div>
+</article>
+<!-- Item 4 -->
+<article class="flex flex-col group cursor-pointer">
+<div class="mb-item-gap flex flex-wrap gap-1 items-baseline w-full truncate">
+<span class="font-project-number text-project-number">385</span>
+<span class="font-label-caps text-label-caps uppercase mx-1">TOWN HALL EXT.</span>
+<span class="font-body text-body">– Bergen</span>
+</div>
+<div class="aspect-square bg-surface-container relative overflow-hidden">
+<img class="absolute inset-0 w-full h-full object-cover grayscale transition-opacity duration-300 group-hover:opacity-0" data-alt="A stark, minimalist black and white architectural photograph of a modern town hall extension in Bergen intersecting with an older structure. Brutalist concrete detailing. The image should look like a professional architectural monograph print, high contrast, dense." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDWP-z40M0dks5WGxMdQT0yDkgMoz9TSLOllrV9tfAmdeC3clM4pin2kHTVS-jjrzhjdOTHR9b2YvRZVxhZ8R5-_YVU7i40kQTvQfn74fxWoXndnghMdUTWPFZA4A8KEFJClq8s97lkAZojX8eHhsTDGLthZiQ-fq4mXPDP1YzIvAqvKnaPtiRBD0cSszEQCO0RBWdjWl6obtifwGf-HOL7h6-QPty-vV6DW7K6U6BSJt1t_pT2_Wgh">
+<img class="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-300" data-alt="A black and white architectural diagram or axonometric drawing of a town hall extension. Crisp, thin lines, austere presentation style, highlighting the volumetric intersection of new and old forms." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAQb42G2X8q81cKibuPukDhzimFLYpSQQuVzcE8ZnYlqW5IIaWIx4gZ1ro7xsLSsBASn4-lF0O5z07KeLnaygs-LFEsgV72D0RePDoSUQaV8tNcnrKTK2K7BlLHWS_pHD76t8bqaaK_j8vrezfpoxeabzErj20is9Pm4dRTYJjvx3rzQNiohVDSWPUZtSnHIpk-dCjKeVupuzSbs-TxoyICGvccsIEK6D889bazSQeaZyCf7cU05rSv">
+</div>
+</article>
+<!-- Item 5 -->
+<article class="flex flex-col group cursor-pointer">
+<div class="mb-item-gap flex flex-wrap gap-1 items-baseline w-full truncate">
+<span class="font-project-number text-project-number">371</span>
+<span class="font-label-caps text-label-caps uppercase mx-1">RESEARCH LAB</span>
+<span class="font-body text-body">– Stockholm</span>
+</div>
+<div class="aspect-square bg-surface-container relative overflow-hidden">
+<img class="absolute inset-0 w-full h-full object-cover grayscale transition-opacity duration-300 group-hover:opacity-0" data-alt="A stark, minimalist black and white architectural photograph of a high-tech research lab in Stockholm. Facade of repetitive vertical louvers and sheer glass. The image should look like a professional architectural monograph print, high contrast, sharp details." src="https://lh3.googleusercontent.com/aida-public/AB6AXuALFxCZFUxRWFim80Mj6REha4Fl9kbnsvy5PzAsKcNdZo2v2hy81WD5XmHGIKrvm1xi-p7Fc28LfM_u6GEI0xyqb3wjn32XVtA2AURxUxkYcJJG9mu7Bh6kd1KySS1BgRLsMBbZIre4lWUgpdw8bWifQOwLaZEHHbsp1G4QWCOGY_lk2YLzHrGlONtx9FxkrEMKKJ4VG8p-YBR9U77vwCPc4Rz_jvvM6u1E6K39y-8V-4owptVexpEA">
+<img class="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-300" data-alt="A detailed black and white architectural section drawing of a research facility. Precise technical linework showing complex HVAC integration and strict grid layout. Clean, austere presentation." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD1JZlce0BeLuRnbEa5IvuE7m85YRNz-vPa8jXJe1FlGMxNeLW1yuXtkm6TtPiX2CUui84Ivr3K-AArNr2UUuVZraOq_yaEb3g8uAz8OaIkQ6QK1IK4dg9Mqn6e8tf5PqYS6_-KkakeEd02lDoSrMqqfTRrHvi-nA7xCY6OOO-XjImSRZVv4EJ6qj9HnFo4BX7lTF__-QUSvHpAFRZ6LGQNXQh2mb46r8VDdrNU0phoHV_abqEs8e5k">
+</div>
+</article>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="flex justify-between items-center w-full px-page-margin py-gutter bg-background border-t border-border-subtle mt-section-gap">
+<div class="flex gap-4">
+<a class="font-caption text-caption text-primary hover:text-secondary transition-colors" href="#">Instagram</a>
+<a class="font-caption text-caption text-primary hover:text-secondary transition-colors" href="#">Contact</a>
+</div>
+</footer>
+</body></html>

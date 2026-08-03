@@ -1,0 +1,168 @@
+<!DOCTYPE html><html class="h-full" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Purchase Confirmation - RKA</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary-container": "#848484",
+                        "inverse-on-surface": "#f0f1f1",
+                        "on-background": "#1a1c1c",
+                        "on-tertiary": "#ffffff",
+                        "tertiary": "#000000",
+                        "surface-container-low": "#f3f3f4",
+                        "surface": "#f9f9f9",
+                        "on-tertiary-container": "#848484",
+                        "primary-container": "#1b1b1b",
+                        "secondary-container": "#e3e2e2",
+                        "on-secondary-container": "#646464",
+                        "on-secondary-fixed-variant": "#464747",
+                        "primary": "#000000",
+                        "on-error": "#ffffff",
+                        "on-primary-fixed-variant": "#474747",
+                        "border-subtle": "#EEEEEE",
+                        "background": "#FFFFFF",
+                        "primary-fixed-dim": "#c6c6c6",
+                        "on-surface": "#1a1c1c",
+                        "surface-tint": "#5e5e5e",
+                        "on-primary-fixed": "#1b1b1b",
+                        "outline-variant": "#cfc4c5",
+                        "text-muted": "#888888",
+                        "on-error-container": "#93000a",
+                        "on-primary": "#ffffff",
+                        "inverse-surface": "#2f3131",
+                        "secondary": "#5e5e5e",
+                        "surface-bright": "#f9f9f9",
+                        "on-secondary-fixed": "#1b1c1c",
+                        "error": "#ba1a1a",
+                        "tertiary-fixed-dim": "#c6c6c6",
+                        "tertiary-fixed": "#e2e2e2",
+                        "primary-fixed": "#e2e2e2",
+                        "error-container": "#ffdad6",
+                        "surface-container": "#eeeeee",
+                        "secondary-fixed": "#e3e2e2",
+                        "surface-dim": "#dadada",
+                        "secondary-fixed-dim": "#c7c6c6",
+                        "on-secondary": "#ffffff",
+                        "on-tertiary-fixed-variant": "#474747",
+                        "on-tertiary-fixed": "#1b1b1b",
+                        "inverse-primary": "#c6c6c6",
+                        "surface-container-high": "#e8e8e8",
+                        "surface-container-highest": "#e2e2e2",
+                        "tertiary-container": "#1b1b1b",
+                        "surface-variant": "#e2e2e2",
+                        "surface-container-lowest": "#ffffff",
+                        "text-primary": "#000000",
+                        "on-surface-variant": "#4c4546",
+                        "outline": "#7e7576"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter": "16px",
+                        "item-gap": "8px",
+                        "stack-gap": "4px",
+                        "page-margin": "20px",
+                        "section-gap": "32px"
+                    },
+                    "fontFamily": {
+                        "section-header": ["Inter"],
+                        "page-title": ["Inter"],
+                        "label-caps": ["Inter"],
+                        "caption": ["Inter"],
+                        "body": ["Inter"],
+                        "project-number": ["Inter"],
+                        "body-bold": ["Inter"]
+                    },
+                    "fontSize": {
+                        "section-header": ["15px", { "lineHeight": "1.4", "fontWeight": "700" }],
+                        "page-title": ["18px", { "lineHeight": "1.4", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+                        "label-caps": ["14px", { "lineHeight": "1.4", "fontWeight": "700" }],
+                        "caption": ["12px", { "lineHeight": "1.4", "fontWeight": "400" }],
+                        "body": ["14px", { "lineHeight": "1.4", "fontWeight": "400" }],
+                        "project-number": ["14px", { "lineHeight": "1.4", "fontWeight": "700" }],
+                        "body-bold": ["14px", { "lineHeight": "1.4", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-background text-primary min-h-screen flex flex-col font-body text-body selection:bg-secondary-container selection:text-primary">
+<!-- Content Canvas (No Nav Shell for Linear/Transactional/Success flow per mandate) -->
+<main class="flex-grow flex flex-col px-page-margin py-section-gap w-full md:max-w-4xl mx-auto">
+<header class="w-full flex justify-between items-start mb-section-gap pb-4 border-b border-primary">
+<h1 class="font-page-title text-page-title">RKA</h1>
+<span class="font-body text-body text-secondary">Checkout</span>
+</header>
+<section class="flex-grow flex flex-col justify-center gap-section-gap max-w-2xl">
+<div class="space-y-stack-gap">
+<p class="font-caption text-caption text-secondary">ORDER STATUS: CONFIRMED</p>
+<h2 class="font-page-title text-page-title text-primary uppercase tracking-tight">THANK YOU FOR YOUR PURCHASE</h2>
+<p class="font-project-number text-project-number pt-item-gap">Order #RKA-2024-0801</p>
+</div>
+<div class="space-y-item-gap py-section-gap border-y border-border-subtle">
+<p class="font-section-header text-section-header uppercase">Order Summary</p>
+<div class="flex justify-between items-end border-b border-border-subtle pb-item-gap">
+<div>
+<p class="font-body-bold text-body-bold">Architectural Monograph Vol. 04</p>
+<p class="font-caption text-caption text-secondary">Standard Edition, Softcover</p>
+</div>
+<span class="font-body text-body">1 x $45.00</span>
+</div>
+<div class="flex justify-between items-end border-b border-border-subtle pb-item-gap">
+<div>
+<p class="font-body-bold text-body-bold">Brutalist Form Study Print</p>
+<p class="font-caption text-caption text-secondary">A2, Archival Matte</p>
+</div>
+<span class="font-body text-body">1 x $120.00</span>
+</div>
+<div class="flex justify-between items-center pt-item-gap">
+<span class="font-body text-body">Subtotal</span>
+<span class="font-body text-body">$165.00</span>
+</div>
+<div class="flex justify-between items-center text-secondary">
+<span class="font-caption text-caption">Shipping</span>
+<span class="font-caption text-caption">$15.00</span>
+</div>
+<div class="flex justify-between items-center pt-stack-gap font-body-bold text-body-bold border-t border-primary mt-stack-gap pt-item-gap">
+<span class="">Total</span>
+<span class="">$180.00</span>
+</div>
+</div>
+<div class="flex gap-gutter pt-item-gap">
+<a class="font-body-bold text-body-bold text-primary hover:text-secondary transition-colors duration-150 group flex items-center gap-1" href="#">
+                    RETURN TO SHOP 
+                    <span class="material-symbols-outlined text-[16px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</a>
+<span class="text-border-subtle">/</span>
+<a class="font-body text-body text-secondary hover:text-primary transition-colors duration-150" href="#">VIEW PROJECTS</a>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-background w-full bottom-0 border-t border-primary flex justify-between items-center px-page-margin py-section-gap font-caption text-caption text-primary">
+
+<div class="flex gap-gutter">
+<a class="hover:underline transition-all" href="#">Terms</a>
+<a class="hover:underline transition-all" href="#">Privacy</a>
+<a class="hover:underline transition-all" href="#">Contact</a>
+</div>
+</footer>
+
+
+</body></html>

@@ -1,0 +1,205 @@
+<!DOCTYPE html><html lang="en" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>RKA Studio - Cart</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary-container": "#848484",
+                        "inverse-on-surface": "#f0f1f1",
+                        "on-background": "#1a1c1c",
+                        "on-tertiary": "#ffffff",
+                        "tertiary": "#000000",
+                        "surface-container-low": "#f3f3f4",
+                        "surface": "#f9f9f9",
+                        "on-tertiary-container": "#848484",
+                        "primary-container": "#1b1b1b",
+                        "secondary-container": "#e3e2e2",
+                        "on-secondary-container": "#646464",
+                        "on-secondary-fixed-variant": "#464747",
+                        "primary": "#000000",
+                        "on-error": "#ffffff",
+                        "on-primary-fixed-variant": "#474747",
+                        "border-subtle": "#EEEEEE",
+                        "background": "#FFFFFF",
+                        "primary-fixed-dim": "#c6c6c6",
+                        "on-surface": "#1a1c1c",
+                        "surface-tint": "#5e5e5e",
+                        "on-primary-fixed": "#1b1b1b",
+                        "outline-variant": "#cfc4c5",
+                        "text-muted": "#888888",
+                        "on-error-container": "#93000a",
+                        "on-primary": "#ffffff",
+                        "inverse-surface": "#2f3131",
+                        "secondary": "#5e5e5e",
+                        "surface-bright": "#f9f9f9",
+                        "on-secondary-fixed": "#1b1c1c",
+                        "error": "#ba1a1a",
+                        "tertiary-fixed-dim": "#c6c6c6",
+                        "tertiary-fixed": "#e2e2e2",
+                        "primary-fixed": "#e2e2e2",
+                        "error-container": "#ffdad6",
+                        "surface-container": "#eeeeee",
+                        "secondary-fixed": "#e3e2e2",
+                        "surface-dim": "#dadada",
+                        "secondary-fixed-dim": "#c7c6c6",
+                        "on-secondary": "#ffffff",
+                        "on-tertiary-fixed-variant": "#474747",
+                        "on-tertiary-fixed": "#1b1b1b",
+                        "inverse-primary": "#c6c6c6",
+                        "surface-container-high": "#e8e8e8",
+                        "surface-container-highest": "#e2e2e2",
+                        "tertiary-container": "#1b1b1b",
+                        "surface-variant": "#e2e2e2",
+                        "surface-container-lowest": "#ffffff",
+                        "text-primary": "#000000",
+                        "on-surface-variant": "#4c4546",
+                        "outline": "#7e7576"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter": "16px",
+                        "item-gap": "8px",
+                        "stack-gap": "4px",
+                        "page-margin": "20px",
+                        "section-gap": "32px"
+                    },
+                    "fontFamily": {
+                        "section-header": ["Inter"],
+                        "page-title": ["Inter"],
+                        "label-caps": ["Inter"],
+                        "caption": ["Inter"],
+                        "body": ["Inter"],
+                        "project-number": ["Inter"],
+                        "body-bold": ["Inter"]
+                    },
+                    "fontSize": {
+                        "section-header": ["15px", { "lineHeight": "1.4", "fontWeight": "700" }],
+                        "page-title": ["18px", { "lineHeight": "1.4", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+                        "label-caps": ["14px", { "lineHeight": "1.4", "fontWeight": "700" }],
+                        "caption": ["12px", { "lineHeight": "1.4", "fontWeight": "400" }],
+                        "body": ["14px", { "lineHeight": "1.4", "fontWeight": "400" }],
+                        "project-number": ["14px", { "lineHeight": "1.4", "fontWeight": "700" }],
+                        "body-bold": ["14px", { "lineHeight": "1.4", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { background-color: #FFFFFF; color: #000000; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0; }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col font-body text-body bg-background text-primary">
+<!-- TopAppBar -->
+<header class="w-full top-0 left-0 border-b border-primary dark:border-on-primary-container bg-background dark:bg-primary-container z-50">
+<div class="flex flex-col w-full px-page-margin py-4 gap-stack-gap">
+<div class="flex justify-between items-center w-full">
+<a class="font-body-bold text-page-title text-primary dark:text-on-primary" href="#">RKA</a>
+<div class="flex items-center gap-item-gap">
+<span class="material-symbols-outlined text-primary dark:text-on-primary cursor-pointer hover:text-secondary transition-colors duration-150" data-icon="shopping_cart">shopping_cart</span>
+</div>
+</div>
+<nav class="flex gap-section-gap w-full mt-item-gap">
+<a class="font-body text-primary dark:text-on-primary hover:text-secondary dark:hover:text-on-secondary-container transition-colors duration-150" href="#">Projects</a>
+<a class="font-body text-primary dark:text-on-primary hover:text-secondary dark:hover:text-on-secondary-container transition-colors duration-150" href="#">Furniture</a>
+<a class="font-body text-primary dark:text-on-primary hover:text-secondary dark:hover:text-on-secondary-container transition-colors duration-150" href="#">Items</a>
+<a class="font-body text-primary dark:text-on-primary hover:text-secondary dark:hover:text-on-secondary-container transition-colors duration-150" href="#">About</a>
+</nav>
+</div>
+</header>
+<!-- Main Content (Cart) -->
+<main class="flex-grow w-full px-page-margin py-section-gap flex flex-col md:flex-row gap-section-gap">
+<!-- Cart Items List -->
+<div class="flex-grow flex flex-col gap-item-gap w-full md:w-2/3">
+<h1 class="font-page-title text-page-title mb-item-gap uppercase tracking-tight">Shopping Cart</h1>
+<!-- Item 1 -->
+<div class="flex items-center justify-between border-b border-primary pb-item-gap group"><div class="flex items-center gap-gutter md:col-span-7">
+<div class="w-24 h-24 bg-surface-container flex-shrink-0 relative overflow-hidden">
+<img class="object-cover w-full h-full grayscale mix-blend-multiply" data-alt="A minimalist overhead view of a brutalist concrete desk tray sitting on a plain white surface. The tray is perfectly rectangular with sharp, precise edges. Lighting is sterile and highly structured, creating a stark light-mode architectural aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuACuZdQW3mxnIyfFdBx1U7d1ac2s1qCG1O3tWKT33ky--5chzUS4sejZx8pjKxqCh2NcDrPr7LQvHwSJKweKVbyT8zOtnERzdZs_SS4nLIialcsQL1fTx4r8M4tIypleTjOTGfAyE0rhhTAcU-v0c-pZautCR4soIHvevc_G19T1FFoo9Y70PvBJ7qYntghRbOco8mdhiRhIrPvloL8JQfWdcRVGBRgFywMbCXtP-UePxDxhQdiUiNK">
+</div>
+<div class="flex flex-col">
+<span class="font-label-caps text-label-caps uppercase">CONCRETE DESK TRAY</span>
+<span class="font-caption text-caption text-secondary mt-stack-gap">Ref: 004-CDT</span>
+</div>
+</div>
+<div class="flex items-center gap-gutter md:w-1/2 justify-end">
+<div class="flex items-center border border-primary h-8 w-24 flex-shrink-0">
+<button class="flex-1 h-full flex items-center justify-center hover:text-secondary transition-colors">-</button>
+<span class="font-body text-body w-8 text-center border-x border-primary h-full flex items-center justify-center">1</span>
+<button class="flex-1 h-full flex items-center justify-center hover:text-secondary transition-colors">+</button>
+</div>
+<div class="w-16 flex justify-end">
+<span class="font-body-bold text-body-bold">$120</span>
+</div>
+<button class="text-secondary hover:text-primary transition-colors ml-stack-gap"><span class="material-symbols-outlined text-[16px]" data-icon="close">close</span></button>
+</div></div>
+<!-- Item 2 -->
+<div class="flex items-center justify-between border-b border-primary pb-item-gap mt-item-gap group"><div class="flex items-center gap-gutter md:col-span-7">
+<div class="w-24 h-24 bg-surface-container flex-shrink-0 relative overflow-hidden">
+<img class="object-cover w-full h-full grayscale mix-blend-multiply" data-alt="A stark macro photograph of a single, oversized industrial steel paperclip resting on a pristine white background. The metal reflects cold, precise studio lighting. The composition is strictly minimalist, emphasizing raw materials and brutalist utility." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDwKAqZhmuF2qMf3IzAbPu2AR18oBYISsI-ikBloXQ3THz-yFLlPCO01VR6f7Lj-rrFyTdGr-PpezqRipZsF-mjg6b0ICd_GvLsHEojf_xqLiCvVmiV73lY2Sg2-mUKWWBFRhi-pIu8-sYaSb3tZBxkkmESWCXPJgMR5LwW0---G4GubsxV-MCCUQhISdUkrtCbIB2sGSiXr7H3LwjU7eCvg3gvEjJwaxU4Ws77lvnqrhvfv4w1UK7G">
+</div>
+<div class="flex flex-col">
+<span class="font-label-caps text-label-caps uppercase">STEEL PAPERCLIP SET</span>
+<span class="font-caption text-caption text-secondary mt-stack-gap">Ref: 012-SPS</span>
+</div>
+</div>
+<div class="flex items-center gap-gutter md:w-1/2 justify-end">
+<div class="flex items-center border border-primary h-8 w-24 flex-shrink-0">
+<button class="flex-1 h-full flex items-center justify-center hover:text-secondary transition-colors">-</button>
+<span class="font-body text-body w-8 text-center border-x border-primary h-full flex items-center justify-center">2</span>
+<button class="flex-1 h-full flex items-center justify-center hover:text-secondary transition-colors">+</button>
+</div>
+<div class="w-16 flex justify-end">
+<span class="font-body-bold text-body-bold">$45</span>
+</div>
+<button class="text-secondary hover:text-primary transition-colors ml-stack-gap"><span class="material-symbols-outlined text-[16px]" data-icon="close">close</span></button>
+</div></div>
+</div>
+<!-- Summary Column -->
+<div class="w-full md:w-1/3 flex flex-col pt-[3.2rem]">
+<div class="bg-surface-bright border border-primary p-gutter flex flex-col gap-item-gap">
+<h2 class="font-section-header text-section-header uppercase border-b border-primary pb-stack-gap mb-stack-gap">Summary</h2>
+<div class="flex justify-between font-body text-body">
+<span class="">Subtotal</span>
+<span class="">$210</span>
+</div>
+<div class="flex justify-between font-body text-body">
+<span class="">Shipping</span>
+<span class="">Calculated at checkout</span>
+</div>
+<div class="flex justify-between font-body-bold text-body-bold border-t border-primary pt-stack-gap mt-stack-gap">
+<span class="">Total</span>
+<span class="">$210</span>
+</div>
+<button class="w-full bg-primary text-background font-label-caps text-label-caps uppercase py-3 mt-item-gap hover:bg-surface-tint transition-colors">PROCEED TO CHECKOUT</button>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full bottom-0 border-t border-primary dark:border-on-primary-container bg-background dark:bg-primary-container mt-auto">
+<div class="flex justify-between items-center w-full px-page-margin py-section-gap">
+
+<div class="flex gap-gutter">
+<a class="font-caption text-caption text-primary dark:text-on-primary hover:underline transition-all" href="#">Terms</a>
+<a class="font-caption text-caption text-primary dark:text-on-primary hover:underline transition-all" href="#">Privacy</a>
+<a class="font-caption text-caption text-primary dark:text-on-primary hover:underline transition-all" href="#">Contact</a>
+</div>
+</div>
+</footer>
+
+
+</body></html>

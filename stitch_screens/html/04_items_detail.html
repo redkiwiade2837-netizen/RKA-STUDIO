@@ -1,0 +1,182 @@
+<!DOCTYPE html><html lang="en" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Item Detail Gallery</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-bright": "#f9f9f9",
+                        "border-subtle": "#EEEEEE",
+                        "on-tertiary": "#ffffff",
+                        "surface-tint": "#5e5e5e",
+                        "on-secondary-fixed-variant": "#464747",
+                        "inverse-primary": "#c6c6c6",
+                        "secondary-fixed-dim": "#c7c6c6",
+                        "on-primary": "#ffffff",
+                        "tertiary-fixed-dim": "#c6c6c6",
+                        "tertiary-container": "#1b1b1b",
+                        "on-error-container": "#93000a",
+                        "outline-variant": "#cfc4c5",
+                        "text-primary": "#000000",
+                        "error": "#ba1a1a",
+                        "primary-container": "#1b1b1b",
+                        "surface-container-highest": "#e2e2e2",
+                        "surface-container-high": "#e8e8e8",
+                        "on-secondary-container": "#646464",
+                        "tertiary": "#000000",
+                        "secondary-container": "#e3e2e2",
+                        "surface-container": "#eeeeee",
+                        "on-surface": "#1a1c1c",
+                        "background": "#FFFFFF",
+                        "primary-fixed": "#e2e2e2",
+                        "on-tertiary-container": "#848484",
+                        "secondary-fixed": "#e3e2e2",
+                        "on-secondary-fixed": "#1b1c1c",
+                        "on-secondary": "#ffffff",
+                        "inverse-on-surface": "#f0f1f1",
+                        "outline": "#7e7576",
+                        "on-primary-container": "#848484",
+                        "on-surface-variant": "#4c4546",
+                        "on-primary-fixed": "#1b1b1b",
+                        "surface-variant": "#e2e2e2",
+                        "primary": "#000000",
+                        "on-error": "#ffffff",
+                        "primary-fixed-dim": "#c6c6c6",
+                        "surface-container-lowest": "#ffffff",
+                        "surface": "#f9f9f9",
+                        "secondary": "#5e5e5e",
+                        "on-tertiary-fixed-variant": "#474747",
+                        "text-muted": "#888888",
+                        "on-primary-fixed-variant": "#474747",
+                        "surface-container-low": "#f3f3f4",
+                        "on-tertiary-fixed": "#1b1b1b",
+                        "on-background": "#1a1c1c",
+                        "error-container": "#ffdad6",
+                        "tertiary-fixed": "#e2e2e2",
+                        "surface-dim": "#dadada",
+                        "inverse-surface": "#2f3131"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "item-gap": "8px",
+                        "stack-gap": "4px",
+                        "gutter": "16px",
+                        "section-gap": "32px",
+                        "page-margin": "20px"
+                    },
+                    "fontFamily": {
+                        "body-bold": ["Inter"],
+                        "caption": ["Inter"],
+                        "section-header": ["Inter"],
+                        "project-number": ["Inter"],
+                        "label-caps": ["Inter"],
+                        "body": ["Inter"],
+                        "page-title": ["Inter"]
+                    },
+                    "fontSize": {
+                        "body-bold": ["14px", { "lineHeight": "1.4", "fontWeight": "700" }],
+                        "caption": ["12px", { "lineHeight": "1.4", "fontWeight": "400" }],
+                        "section-header": ["15px", { "lineHeight": "1.4", "fontWeight": "700" }],
+                        "project-number": ["14px", { "lineHeight": "1.4", "fontWeight": "700" }],
+                        "label-caps": ["14px", { "lineHeight": "1.4", "fontWeight": "700" }],
+                        "body": ["14px", { "lineHeight": "1.4", "fontWeight": "400" }],
+                        "page-title": ["18px", { "lineHeight": "1.4", "letterSpacing": "-0.01em", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-background text-text-primary antialiased min-h-screen flex flex-col w-full m-0 p-0 overflow-x-hidden font-body text-body selection:bg-secondary-container selection:text-text-primary">
+<!-- Top Bar -->
+<header class="w-full flex justify-between items-center px-page-margin py-gutter fixed top-0 left-0 bg-background z-50 transition-all duration-300">
+<div class="font-body-bold text-body uppercase tracking-widest cursor-pointer hover:opacity-70 transition-opacity">
+            RKA — ITEM
+        </div>
+<div class="font-body text-body uppercase tracking-widest absolute left-1/2 -translate-x-1/2">
+            ACCESSORY 01
+        </div>
+<button aria-label="Close" class="p-2 hover:opacity-70 transition-opacity flex items-center justify-center">
+<span class="material-symbols-outlined text-xl" style="font-variation-settings: 'FILL' 0;">close</span>
+</button>
+</header>
+<!-- Main Content Gallery -->
+<main class="flex-grow flex w-full h-[100dvh] pt-[60px] pb-[60px] px-page-margin gap-gutter box-border">
+<!-- Left Image -->
+<div class="w-1/2 h-full cursor-e-resize relative group overflow-hidden bg-surface-bright" onclick="nextImage(1)">
+<img alt="Stationery detail 1" class="w-full h-full object-contain absolute inset-0 transition-opacity duration-500" data-alt="A stark, minimalist, top-down photograph of a meticulously arranged set of premium graphite pencils resting on a pristine white architectural drafting table. The lighting is harsh and directional, creating sharp, graphic shadows that emphasize the cylindrical forms of the pencils. The palette is entirely monochromatic, strictly black, white, and varying shades of cool gray. The aesthetic is brutalist and precise, focusing on utilitarian beauty." id="gallery-img-1-1" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAZ_u1lCc-6L_pb7rmg3yjAq_8RgBuXvf_Eh5ppieKRPnkEzl_oHRmh8JoPgSC-Ea5LIx4XqgEstb_07ct50h9hu6T0-PKO7eucPYp0Wk2KWD51gP_5N94VbeG9MJ0_Wyg9uekOPXF_6HjtT6GuniftXPEHDzCkTUHJYK4SRnrJjrbl4noPXKyZ65XrdfbmG88Xoe_0xh-a-NBjuOGFngwuP_LEUT5NzHiVymsWkJ5LfVhyKXBNA_VB">
+<img alt="Stationery detail 1b" class="w-full h-full object-contain absolute inset-0 opacity-0 transition-opacity duration-500" data-alt="A macro photograph focusing intensely on the raw, unpolished steel of a heavy-duty binder clip clamping together a stack of thick, textured white art paper. The depth of field is incredibly shallow, blurring the background into abstract shades of gray. The lighting highlights the metallic sheen and the subtle imperfections in the steel surface. The visual style is industrial, austere, and deeply focused on materiality." id="gallery-img-1-2" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDGNRviKEspQIIoSXqGxOqZA99Z59O9U6MWoH2O_afwwioY7K0zgUATEKlPu5X9QpmrlidSrwWpwBiWX-j_Ix7oFURiQHmL3FQ_rUyUlwdx6lQHSlS7mrGwLSfQKM8UbO3KzNmE0e83Xp59mBlbVEnpEfkdwcR2qI-wobvLIzkE6uLxnh31iYk9RGqd7i6F9Dq5eaL8D_ocW4qHJaTtddX2-MpSSJcX_Nxj86vKD5lkimX3h3Ll9Upc">
+</div>
+<!-- Right Image -->
+<div class="w-1/2 h-full cursor-e-resize relative group overflow-hidden bg-surface-bright" onclick="nextImage(2)">
+<img alt="Stationery detail 2" class="w-full h-full object-contain absolute inset-0 transition-opacity duration-500" data-alt="A highly structured, grid-like composition showing a single open notebook with stark black covers and crisp white, unlined pages. The notebook sits squarely in the center of a slightly textured concrete surface. The lighting is diffused but strong enough to reveal the subtle grain of the paper. The overall tone is intellectual, clinical, and completely devoid of any decorative elements, embodying Swiss International typographic principles." id="gallery-img-2-1" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCmSXGRsJ2bQ4Il-sO8Tb0D0o7qQugNKxNittcEJWpdKsP09e71qSNjQ3EwQs1MHoNgEJgfY4QcSLcDUz49_RAcUEQEEOQ5aFqHTe5SZx17_dGHRjNzKwP5NK9q0IWCylcj_M7xrx_6PtXblEOER8k1JwYbyqwICyGVGCKpIejwdjgsDkwFcynpcs0fAP2-i2RurREhAFVkYBWAvNAgGkMHZPhVR3I-02p3fv8R4RISyyru1-9_Kgcf">
+<img alt="Stationery detail 2b" class="w-full h-full object-contain absolute inset-0 opacity-0 transition-opacity duration-500" data-alt="An abstract, close-up shot of the spiraled wire binding of a professional sketchbook, viewed from an extreme angle to emphasize repetition and geometry. The silver wire contrasts sharply against the stark black background, creating a rhythmic visual pattern. The lighting is stark and dramatic, casting deep shadows within the spiral structure. The mood is analytical, architectural, and strictly utilitarian." id="gallery-img-2-2" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBMamuTybcZ8EHH7g-KmFbuL6KzmFPw4DK_1ZSLq1no6UgP_k2QWeQ_yQlGHiT6Qy3ufBwvPBkIrVLL2oe2BcmjBvC-mSoHbyiVdAe-Acbx1-bzKhw3hVfaITtPp1IdGR4N4tWNFrT8Gz5s0OsRXvd0dYDB-g_h5Emsim6EQhzEh08sfzET9sdPN1To6yL7-sRpOAyH6S8NOyRNx9rdpA4GcegrPnJ5mIDsNpABpwkpezPbjDbP6CKX">
+</div>
+</main>
+<!-- Bottom Bar -->
+<footer class="w-full flex justify-between items-center px-page-margin py-gutter fixed bottom-0 left-0 bg-background z-50">
+<div class="font-body text-body text-text-muted">
+<span id="page-indicator" class="">1</span>/2
+        </div>
+<button class="font-body text-body uppercase tracking-wider absolute left-1/2 -translate-x-1/2 hover:underline underline-offset-4 decoration-1 cursor-pointer transition-all">
+            Info
+        </button>
+<div class="font-body text-body text-text-muted flex items-center gap-gutter"><button class="font-body text-body uppercase tracking-wider hover:underline underline-offset-4 decoration-1 cursor-pointer transition-all">Add to Cart</button>
+            1/4
+        </div>
+</footer>
+<script>
+        let currentImageSet = 1;
+        const totalSets = 2;
+
+        function nextImage(side) {
+            // Toggle opacity classes for a simple crossfade effect
+            
+            const img1_1 = document.getElementById('gallery-img-1-1');
+            const img1_2 = document.getElementById('gallery-img-1-2');
+            const img2_1 = document.getElementById('gallery-img-2-1');
+            const img2_2 = document.getElementById('gallery-img-2-2');
+            const indicator = document.getElementById('page-indicator');
+
+            if (currentImageSet === 1) {
+                img1_1.classList.remove('opacity-100');
+                img1_1.classList.add('opacity-0');
+                img1_2.classList.remove('opacity-0');
+                img1_2.classList.add('opacity-100');
+
+                img2_1.classList.remove('opacity-100');
+                img2_1.classList.add('opacity-0');
+                img2_2.classList.remove('opacity-0');
+                img2_2.classList.add('opacity-100');
+                
+                currentImageSet = 2;
+                indicator.innerText = '2';
+            } else {
+                img1_2.classList.remove('opacity-100');
+                img1_2.classList.add('opacity-0');
+                img1_1.classList.remove('opacity-0');
+                img1_1.classList.add('opacity-100');
+
+                img2_2.classList.remove('opacity-100');
+                img2_2.classList.add('opacity-0');
+                img2_1.classList.remove('opacity-0');
+                img2_1.classList.add('opacity-100');
+                
+                currentImageSet = 1;
+                indicator.innerText = '1';
+            }
+        }
+    </script>
+</body></html>

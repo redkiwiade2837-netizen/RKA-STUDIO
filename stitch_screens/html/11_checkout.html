@@ -1,0 +1,393 @@
+<!DOCTYPE html><html lang="en" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Checkout - RKA Studio</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script src="https://www.paypal.com/sdk/js?client-id=AXi4hjoyrhv3fAQObadX06iohQdimT6f_JDV8fUFpWWVxs7h3LKn90iLUTy1d-hG8Bw_toZTkAapMpUV&currency=USD&intent=capture"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-primary-container": "#848484",
+                      "inverse-on-surface": "#f0f1f1",
+                      "on-background": "#1a1c1c",
+                      "on-tertiary": "#ffffff",
+                      "tertiary": "#000000",
+                      "surface-container-low": "#f3f3f4",
+                      "surface": "#f9f9f9",
+                      "on-tertiary-container": "#848484",
+                      "primary-container": "#1b1b1b",
+                      "secondary-container": "#e3e2e2",
+                      "on-secondary-container": "#646464",
+                      "on-secondary-fixed-variant": "#464747",
+                      "primary": "#000000",
+                      "on-error": "#ffffff",
+                      "on-primary-fixed-variant": "#474747",
+                      "border-subtle": "#EEEEEE",
+                      "background": "#FFFFFF",
+                      "primary-fixed-dim": "#c6c6c6",
+                      "on-surface": "#1a1c1c",
+                      "surface-tint": "#5e5e5e",
+                      "on-primary-fixed": "#1b1b1b",
+                      "outline-variant": "#cfc4c5",
+                      "text-muted": "#888888",
+                      "on-error-container": "#93000a",
+                      "on-primary": "#ffffff",
+                      "inverse-surface": "#2f3131",
+                      "secondary": "#5e5e5e",
+                      "surface-bright": "#f9f9f9",
+                      "on-secondary-fixed": "#1b1c1c",
+                      "error": "#ba1a1a",
+                      "tertiary-fixed-dim": "#c6c6c6",
+                      "tertiary-fixed": "#e2e2e2",
+                      "primary-fixed": "#e2e2e2",
+                      "error-container": "#ffdad6",
+                      "surface-container": "#eeeeee",
+                      "secondary-fixed": "#e3e2e2",
+                      "surface-dim": "#dadada",
+                      "secondary-fixed-dim": "#c7c6c6",
+                      "on-secondary": "#ffffff",
+                      "on-tertiary-fixed-variant": "#474747",
+                      "on-tertiary-fixed": "#1b1b1b",
+                      "inverse-primary": "#c6c6c6",
+                      "surface-container-high": "#e8e8e8",
+                      "surface-container-highest": "#e2e2e2",
+                      "tertiary-container": "#1b1b1b",
+                      "surface-variant": "#e2e2e2",
+                      "surface-container-lowest": "#ffffff",
+                      "text-primary": "#000000",
+                      "on-surface-variant": "#4c4546",
+                      "outline": "#7e7576"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "gutter": "16px",
+                      "item-gap": "8px",
+                      "stack-gap": "4px",
+                      "page-margin": "20px",
+                      "section-gap": "32px"
+              },
+              "fontFamily": {
+                      "section-header": [
+                              "Inter"
+                      ],
+                      "page-title": [
+                              "Inter"
+                      ],
+                      "label-caps": [
+                              "Inter"
+                      ],
+                      "caption": [
+                              "Inter"
+                      ],
+                      "body": [
+                              "Inter"
+                      ],
+                      "project-number": [
+                              "Inter"
+                      ],
+                      "body-bold": [
+                              "Inter"
+                      ]
+              },
+              "fontSize": {
+                      "section-header": [
+                              "15px",
+                              {
+                                      "lineHeight": "1.4",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "page-title": [
+                              "18px",
+                              {
+                                      "lineHeight": "1.4",
+                                      "letterSpacing": "-0.01em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "label-caps": [
+                              "14px",
+                              {
+                                      "lineHeight": "1.4",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "caption": [
+                              "12px",
+                              {
+                                      "lineHeight": "1.4",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "body": [
+                              "14px",
+                              {
+                                      "lineHeight": "1.4",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "project-number": [
+                              "14px",
+                              {
+                                      "lineHeight": "1.4",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "body-bold": [
+                              "14px",
+                              {
+                                      "lineHeight": "1.4",
+                                      "fontWeight": "700"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+      </script>
+<style>
+        .input-brutal {
+            @apply w-full border-0 border-b border-primary bg-transparent py-2 px-0 font-body text-body text-primary focus:ring-0 focus:border-primary focus:outline-none transition-colors;
+            border-radius: 0;
+        }
+        .label-brutal {
+            @apply block font-body-bold text-body-bold text-primary mb-1;
+        }
+        .btn-brutal {
+            @apply w-full bg-primary text-on-primary font-body-bold text-body-bold py-4 text-center hover:bg-surface-tint transition-colors cursor-pointer;
+            border-radius: 0;
+        }
+        
+        .tab-btn {
+            @apply font-body text-body pb-2 border-b-2 border-transparent text-text-muted hover:text-primary transition-colors duration-200 cursor-pointer flex-1 text-center;
+        }
+        .tab-btn.active {
+            @apply border-primary text-primary font-body-bold;
+        }
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+      </style>
+</head>
+<body class="bg-background text-primary min-h-screen flex flex-col antialiased">
+<!-- TopAppBar -->
+<header class="bg-background dark:bg-primary-container text-primary dark:text-on-primary w-full top-0 left-0 border-b border-primary dark:border-on-primary-container flex flex-col px-page-margin py-4 gap-stack-gap">
+<div class="flex justify-between items-center">
+<div class="font-body-bold text-page-title text-primary dark:text-on-primary">
+                RKA
+            </div>
+<!-- Trailing Icon Action -->
+<button aria-label="shopping_cart" class="hover:text-secondary dark:hover:text-on-secondary-container transition-colors duration-150">
+<span class="material-symbols-outlined" data-icon="shopping_cart">shopping_cart</span>
+</button>
+</div>
+<!-- Navigation Suppressed for Transactional Intent -->
+</header>
+<main class="flex-grow w-full px-page-margin py-section-gap">
+<div class="max-w-[1200px] mx-auto">
+<h1 class="font-page-title text-page-title mb-section-gap">Checkout</h1>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-gutter">
+<!-- Left Column: Forms (8 cols) -->
+<div class="md:col-span-8 flex flex-col gap-section-gap">
+<!-- Shipping Section -->
+<section>
+<h2 class="font-section-header text-section-header mb-6 border-b border-primary pb-2">Shipping Information</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-x-gutter gap-y-6">
+<div class="col-span-1 md:col-span-2"><div class="flex items-center gap-4"><label class="label-brutal w-32 mb-0 flex-shrink-0" for="email">Email Address</label><input class="input-brutal" id="email" placeholder="email@example.com" required="" type="email"></div></div>
+<div class="col-span-1"><div class="flex items-center gap-4"><label class="label-brutal w-32 mb-0 flex-shrink-0" for="firstName">First Name</label><input class="input-brutal" id="firstName" required="" type="text"></div></div>
+<div class="col-span-1"><div class="flex items-center gap-4"><label class="label-brutal w-32 mb-0 flex-shrink-0" for="lastName">Last Name</label><input class="input-brutal" id="lastName" required="" type="text"></div></div>
+<div class="col-span-1 md:col-span-2"><div class="flex items-center gap-4"><label class="label-brutal w-32 mb-0 flex-shrink-0" for="address">Street Address</label><input class="input-brutal" id="address" required="" type="text"></div></div>
+<div class="col-span-1 md:col-span-2 flex flex-col gap-y-6"><div class="flex items-center gap-4"><label class="label-brutal w-32 flex-shrink-0 mb-0" for="city">City</label><input class="input-brutal" id="city" required="" type="text"></div><div class="flex items-center gap-4"><label class="label-brutal w-32 flex-shrink-0 mb-0" for="state">State/Province</label><input class="input-brutal" id="state" required="" type="text"></div><div class="flex items-center gap-4"><label class="label-brutal w-32 flex-shrink-0 mb-0" for="zip">ZIP/Postal Code</label><input class="input-brutal" id="zip" required="" type="text"></div></div>
+</div>
+</section>
+<!-- Payment Section -->
+<section>
+<div class="flex items-center justify-between border-b border-primary pb-2 mb-6">
+<h2 class="font-section-header text-section-header">Payment Method</h2>
+<div class="flex gap-2 text-text-muted">
+<span class="material-symbols-outlined text-[20px]" data-icon="lock">lock</span>
+<span class="font-caption text-caption">Secure Encrypted Transaction</span>
+</div>
+</div>
+<div class="flex gap-4 mb-6">
+<button class="tab-btn active" data-target="paypal" type="button">PayPal</button>
+<button class="tab-btn" data-target="toss" type="button">Toss</button>
+</div>
+<div class="space-y-6 w-full tab-content active" id="paypal">
+<p class="font-body text-body text-text-muted text-center py-4">Pay securely with PayPal.</p>
+<div id="paypal-button-container" class="max-w-md mx-auto"></div>
+<p id="paypal-status" class="font-caption text-caption text-text-muted text-center"></p>
+</div>
+<div class="space-y-6 w-full tab-content" id="toss">
+<div><div class="flex items-center gap-4"><label class="label-brutal w-32 mb-0 flex-shrink-0" for="tossPhone">Phone Number</label><input class="input-brutal" id="tossPhone" placeholder="010-0000-0000" type="tel"></div></div>
+<button class="btn-brutal mt-4" type="button">PROCEED TO TOSS</button>
+</div>
+</section>
+</div>
+<!-- Right Column: Order Summary (4 cols) -->
+<div class="md:col-span-4">
+<div class="bg-surface p-6 sticky top-8">
+<h2 class="font-section-header text-section-header mb-6 border-b border-primary pb-2">Order Summary</h2>
+<div class="space-y-4 mb-8" id="orderSummaryItems">
+<!-- Item 1: catalog id f001 (BRUTALIST CHAIR) — must match rka-backend/products.js -->
+<div class="flex gap-4" data-product-id="f001" data-quantity="1">
+<div class="w-16 h-16 bg-surface-variant flex-shrink-0">
+<img class="w-full h-full object-cover grayscale" data-alt="A minimalist architectural monograph book cover, featuring stark black typography on a pristine white background. High contrast, studio lighting, brutalist aesthetic. The book is presented flatly against a neutral gray surface, emphasizing its clean, utilitarian design." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAOJnSa-nY_WF8_1ToEIj-dwWY7qN8Z0TD0wW9xEZKOrdJ4sIT0bxuKR1m9Yb8DHmWUxJm0JTQ77jZctGT0LIuUILhGifH58bCeDgiVLP330u_uZ6bv9pPy8ZVTdlf-MpWeLkB2B1IsYWzXSDVBfb0TzbmH4CZHeoiQVIRNrNavfOK-O_UxKftuHfjNZCRM17jNK6lG7oDbdfY772wWaU3IMgclfeUNvodBY9cNCR5Xp_MxN5ILOLe7">
+</div>
+<div class="flex-grow flex flex-col justify-between">
+<div class="flex justify-between font-body text-body">
+<span class="font-body-bold">Brutalist Chair</span>
+<span class="">$1,200.00</span>
+</div>
+<span class="font-caption text-caption text-text-muted">Qty: 1</span>
+</div>
+</div>
+<!-- Item 2: catalog id i003 (CONCRETE DESK TRAY) — must match rka-backend/products.js -->
+<div class="flex gap-4" data-product-id="i003" data-quantity="1">
+<div class="w-16 h-16 bg-surface-variant flex-shrink-0">
+<img class="w-full h-full object-cover grayscale" data-alt="A high-end architectural model made of raw concrete and balsa wood. The model represents a brutalist pavilion. Lighting is sharp and directional, casting hard shadows on a plain white backdrop. The composition is strictly orthographic, reflecting a professional studio environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAd0pXIK6uPYLGTTdINgQxz49wGOPE6jxfrtl8l37vEy_THI1y8UzbFAo_ubOOVdb1BhXKllggZEUcOavx2PGNEwnRnJZ9vlFMohKgiWj-DRdrlP-6vYBnUGBOGkMNEZuPSEmTsc9XvK9ciEBZSLTIeNlQpuQbG2LVznP34VzpGY8DV7AUjitNjTa3-U4fq8Q8zmgU6PEY-BxkEpixMNW1Wg_aTLt_TcIKiWSV1J65KskHGO_gB1_OW">
+</div>
+<div class="flex-grow flex flex-col justify-between">
+<div class="flex justify-between font-body text-body">
+<span class="font-body-bold">Concrete Desk Tray</span>
+<span class="">$120.00</span>
+</div>
+<span class="font-caption text-caption text-text-muted">Qty: 1</span>
+</div>
+</div>
+</div>
+<div class="border-t border-primary pt-4 space-y-2 mb-8 font-body text-body">
+<div class="flex justify-between">
+<span class="">Subtotal</span>
+<span class="">$1,320.00</span>
+</div>
+<div class="flex justify-between">
+<span class="">Shipping</span>
+<span class="">$25.00</span>
+</div>
+<div class="flex justify-between">
+<span class="">Tax</span>
+<span class="">$112.20</span>
+</div>
+<div class="flex justify-between font-body-bold text-body-bold pt-4 border-t border-border-subtle mt-2">
+<span class="">Total</span>
+<span class="">$1,457.20</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-background dark:bg-primary-container text-primary dark:text-on-primary w-full bottom-0 border-t border-primary dark:border-on-primary-container flex justify-between items-center px-page-margin py-section-gap">
+
+<nav class="flex gap-4">
+<a class="font-body text-primary dark:text-on-primary hover:underline transition-all" href="#">Terms</a>
+<a class="font-body text-primary dark:text-on-primary hover:underline transition-all" href="#">Privacy</a>
+<a class="font-body text-primary dark:text-on-primary hover:underline transition-all" href="#">Contact</a>
+</nav>
+</footer>
+<script>
+    const BACKEND_BASE_URL = 'http://localhost:5000';
+
+    document.addEventListener('DOMContentLoaded', function() {
+        const tabBtns = document.querySelectorAll('.tab-btn');
+        const tabContents = document.querySelectorAll('.tab-content');
+
+        tabBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active class from all buttons and contents
+                tabBtns.forEach(b => b.classList.remove('active'));
+                tabContents.forEach(c => c.classList.remove('active'));
+
+                // Add active class to clicked button
+                btn.classList.add('active');
+
+                // Show corresponding content
+                const targetId = btn.getAttribute('data-target');
+                document.getElementById(targetId).classList.add('active');
+            });
+        });
+
+        // Reads product id + quantity straight off the summary panel. The
+        // backend looks these up in its own catalog and computes the price
+        // itself — it never trusts an amount sent from the browser.
+        function getOrderItems() {
+            return Array.from(document.querySelectorAll('#orderSummaryItems [data-product-id]')).map(el => ({
+                id: el.getAttribute('data-product-id'),
+                quantity: parseInt(el.getAttribute('data-quantity'), 10),
+            }));
+        }
+
+        function setPaypalStatus(message, isError) {
+            const status = document.getElementById('paypal-status');
+            status.textContent = message || '';
+            status.classList.toggle('text-error', !!isError);
+            status.classList.toggle('text-text-muted', !isError);
+        }
+
+        if (window.paypal) {
+            paypal.Buttons({
+                style: { layout: 'vertical', color: 'black', shape: 'rect', label: 'pay' },
+
+                createOrder: async function () {
+                    setPaypalStatus('');
+                    const response = await fetch(`${BACKEND_BASE_URL}/api/orders`, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ items: getOrderItems() }),
+                    });
+                    const orderData = await response.json();
+                    if (orderData.id) return orderData.id;
+                    throw new Error(orderData?.details?.[0]?.description || 'Failed to create PayPal order.');
+                },
+
+                onApprove: async function (data, actions) {
+                    const response = await fetch(`${BACKEND_BASE_URL}/api/orders/${data.orderID}/capture`, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                    });
+                    const orderData = await response.json();
+                    const errorDetail = orderData?.details?.[0];
+
+                    if (errorDetail?.issue === 'INSTRUMENT_DECLINED') {
+                        return actions.restart();
+                    }
+                    if (errorDetail) {
+                        setPaypalStatus(errorDetail.description || 'Payment could not be processed.', true);
+                        return;
+                    }
+
+                    window.location.href = '10_order_confirmation.html';
+                },
+
+                onCancel: function () {
+                    setPaypalStatus('Payment cancelled.', false);
+                },
+
+                onError: function (err) {
+                    console.error('PayPal Error:', err);
+                    setPaypalStatus('Something went wrong with PayPal. Please try again.', true);
+                },
+            }).render('#paypal-button-container');
+        }
+    });
+</script>
+
+
+</body></html>

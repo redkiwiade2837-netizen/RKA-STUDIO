@@ -1,0 +1,185 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Gallery Detail - RKA Architecture</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-container": "#1b1b1b",
+                        "surface-container": "#eeeeee",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container-highest": "#e2e2e2",
+                        "tertiary-fixed-dim": "#c6c6c6",
+                        "border-subtle": "#EEEEEE",
+                        "surface-container-high": "#e8e8e8",
+                        "on-tertiary-fixed-variant": "#474747",
+                        "primary-fixed": "#e2e2e2",
+                        "secondary-fixed-dim": "#c7c6c6",
+                        "outline": "#7e7576",
+                        "inverse-surface": "#2f3131",
+                        "error": "#ba1a1a",
+                        "on-primary": "#ffffff",
+                        "on-tertiary-container": "#848484",
+                        "on-error-container": "#93000a",
+                        "tertiary-fixed": "#e2e2e2",
+                        "error-container": "#ffdad6",
+                        "secondary": "#5e5e5e",
+                        "surface-container-low": "#f3f3f4",
+                        "on-surface": "#1a1c1c",
+                        "on-primary-fixed-variant": "#474747",
+                        "on-secondary": "#ffffff",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary-container": "#646464",
+                        "secondary-container": "#e3e2e2",
+                        "primary": "#000000",
+                        "on-primary-container": "#848484",
+                        "surface": "#f9f9f9",
+                        "outline-variant": "#cfc4c5",
+                        "on-primary-fixed": "#1b1b1b",
+                        "on-surface-variant": "#4c4546",
+                        "text-primary": "#000000",
+                        "surface-variant": "#e2e2e2",
+                        "primary-container": "#1b1b1b",
+                        "primary-fixed-dim": "#c6c6c6",
+                        "tertiary": "#000000",
+                        "on-secondary-fixed": "#1b1c1c",
+                        "secondary-fixed": "#e3e2e2",
+                        "inverse-primary": "#c6c6c6",
+                        "on-tertiary-fixed": "#1b1b1b",
+                        "surface-dim": "#dadada",
+                        "on-error": "#ffffff",
+                        "surface-bright": "#f9f9f9",
+                        "on-secondary-fixed-variant": "#464747",
+                        "inverse-on-surface": "#f0f1f1",
+                        "surface-tint": "#5e5e5e",
+                        "background": "#FFFFFF",
+                        "on-background": "#1a1c1c",
+                        "text-muted": "#888888"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "section-gap": "32px",
+                        "gutter": "16px",
+                        "stack-gap": "4px",
+                        "item-gap": "8px",
+                        "page-margin": "20px"
+                    },
+                    "fontFamily": {
+                        "label-caps": ["Inter"],
+                        "project-number": ["Inter"],
+                        "body": ["Inter"],
+                        "section-header": ["Inter"],
+                        "caption": ["Inter"],
+                        "body-bold": ["Inter"],
+                        "page-title": ["Inter"]
+                    },
+                    "fontSize": {
+                        "label-caps": ["14px", { "lineHeight": "1.4", "fontWeight": "700" }],
+                        "project-number": ["14px", { "lineHeight": "1.4", "fontWeight": "700" }],
+                        "body": ["14px", { "lineHeight": "1.4", "fontWeight": "400" }],
+                        "section-header": ["15px", { "lineHeight": "1.4", "fontWeight": "700" }],
+                        "caption": ["12px", { "lineHeight": "1.4", "fontWeight": "400" }],
+                        "body-bold": ["14px", { "lineHeight": "1.4", "fontWeight": "700" }],
+                        "page-title": ["18px", { "lineHeight": "1.4", "letterSpacing": "-0.01em", "fontWeight": "700" }]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            background-color: theme('colors.background');
+            color: theme('colors.text-primary');
+            -webkit-font-smoothing: antialiased;
+        }
+        .fade-transition {
+            transition: opacity 0.3s ease-in-out;
+        }
+    </style>
+</head>
+<body class="h-screen w-screen overflow-hidden flex flex-col font-body text-body bg-background text-primary">
+<!-- Top Bar -->
+<header class="flex justify-between items-center px-page-margin py-gutter w-full shrink-0">
+<div class="font-body-bold text-body">RKA — PROJECT TITLE</div>
+<div class="font-body text-body absolute left-1/2 -translate-x-1/2">OFFICE 417</div>
+<a class="font-body text-body hover:opacity-50 transition-opacity" href="#">✕</a>
+</header>
+<!-- Main Content Split View -->
+<main class="flex-grow flex flex-row overflow-hidden w-full px-page-margin gap-gutter items-center justify-center">
+<!-- Left Side: Photo -->
+<div class="w-1/2 h-full flex items-center justify-center cursor-pointer group" onclick="cyclePhoto()">
+<img alt="Architectural Photo" class="max-h-full max-w-full object-contain fade-transition group-hover:opacity-90" id="photo-img" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD5561AhFIRRbPO5y6GOyJCthYSMxDcfmn9teEvWuK3qDZQ_6CE9t15HxOBv7FHZ9FpNWkQsSbi6FaHybaF3aq2TFUEJPw3M01eElqUE_8m7a0oewqmoOL-tvB8QdpzLt1rvNIHkEI3rzTQ1Iw-KPEIdlMpkKmLqmQ9pmeQBnRW2cRooHCUrd4eKwnbknc3cbfUko8qhWnpYh47MUfpZO1MrdK_GoP9G4F-iym_3__-TkkOcu67fc4r">
+</div>
+<!-- Right Side: Drawing/Plan -->
+<div class="w-1/2 h-full flex items-center justify-center cursor-pointer group" onclick="cycleDrawing()">
+<img alt="Architectural Drawing" class="max-h-full max-w-full object-contain grayscale opacity-80 fade-transition group-hover:opacity-70" id="drawing-img" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAae000B70Jw3TAB2sshUFlgfQGHu7JwS3mgOzmxWItPnBNfsxEN53Gna5Ip2-EXGcE41qRpnoMV09nCvT85gSxQRTnFgWQvilCDk8lO7cQrA96CU2gzlkqgkBFRV_p_UkbiHkAiGq0yeKwX4JloHQtBpxtqE60VpGGvKbsHAOtEuvkwfSRAl56xHkJXNbeLRCVlK8pfxLmXX-fldEHomwInwlSlJTeOGCIMEXsIhs1FWA0u98U3Sw_">
+</div>
+</main>
+<!-- Bottom Bar -->
+<footer class="w-full flex justify-between items-center px-page-margin py-gutter fixed bottom-0 left-0 bg-background z-50">
+<div class="font-body text-body text-text-muted"><span id="photo-index" class="">1</span>/3</div>
+<button class="font-body text-body uppercase tracking-wider absolute left-1/2 -translate-x-1/2 hover:underline underline-offset-4 decoration-1 cursor-pointer transition-all">Info</button>
+<div class="font-body text-body text-text-muted" id="drawing-index">1/4</div>
+</footer>
+<script>
+        // Data Arrays
+        const photos = [
+            "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80",
+            "https://images.unsplash.com/photo-1600607687931-ceeb66d11262?auto=format&fit=crop&q=80",
+            "https://images.unsplash.com/photo-1600566753086-00f18efc2291?auto=format&fit=crop&q=80"
+        ];
+        
+        const drawings = [
+            "https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&q=80",
+            "https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&q=80",
+            "https://images.unsplash.com/photo-1541888086925-0c1157b85e05?auto=format&fit=crop&q=80",
+            "https://images.unsplash.com/photo-1503387837-b154d5074bd2?auto=format&fit=crop&q=80"
+        ];
+
+        let photoIndex = 0;
+        let drawingIndex = 0;
+
+        function updatePhoto() {
+            const img = document.getElementById('photo-img');
+            img.style.opacity = 0;
+            setTimeout(() => {
+                img.src = photos[photoIndex];
+                document.getElementById('photo-index').innerText = `${photoIndex + 1}/${photos.length}`;
+                img.style.opacity = 1;
+            }, 300);
+        }
+
+        function updateDrawing() {
+            const img = document.getElementById('drawing-img');
+            img.style.opacity = 0;
+            setTimeout(() => {
+                img.src = drawings[drawingIndex];
+                document.getElementById('drawing-index').innerText = `${drawingIndex + 1}/${drawings.length}`;
+                img.style.opacity = 0.8; 
+            }, 300);
+        }
+
+        function cyclePhoto() {
+            photoIndex = (photoIndex + 1) % photos.length;
+            updatePhoto();
+        }
+
+        function cycleDrawing() {
+            drawingIndex = (drawingIndex + 1) % drawings.length;
+            updateDrawing();
+        }
+    </script>
+
+
+</body></html>

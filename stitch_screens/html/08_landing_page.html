@@ -1,0 +1,214 @@
+<!DOCTYPE html><html lang="en" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>RKA</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-surface": "#1a1c1c",
+                        "tertiary": "#000000",
+                        "text-muted": "#888888",
+                        "on-error": "#ffffff",
+                        "surface-variant": "#e2e2e2",
+                        "surface-container-high": "#e8e8e8",
+                        "on-primary-fixed": "#1b1b1b",
+                        "surface-tint": "#5e5e5e",
+                        "primary-fixed-dim": "#c6c6c6",
+                        "secondary": "#5e5e5e",
+                        "on-primary-fixed-variant": "#474747",
+                        "on-secondary": "#ffffff",
+                        "outline-variant": "#cfc4c5",
+                        "primary": "#000000",
+                        "outline": "#7e7576",
+                        "inverse-on-surface": "#f0f1f1",
+                        "tertiary-fixed-dim": "#c6c6c6",
+                        "surface-container-highest": "#e2e2e2",
+                        "secondary-container": "#e3e2e2",
+                        "surface-bright": "#f9f9f9",
+                        "on-surface-variant": "#4c4546",
+                        "on-error-container": "#93000a",
+                        "on-tertiary-fixed-variant": "#474747",
+                        "surface-container": "#eeeeee",
+                        "background": "#FFFFFF",
+                        "surface-container-low": "#f3f3f4",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary-container": "#848484",
+                        "secondary-fixed": "#e3e2e2",
+                        "on-tertiary": "#ffffff",
+                        "tertiary-container": "#1b1b1b",
+                        "error-container": "#ffdad6",
+                        "surface-dim": "#dadada",
+                        "border-subtle": "#EEEEEE",
+                        "on-primary": "#ffffff",
+                        "on-tertiary-container": "#848484",
+                        "on-secondary-fixed-variant": "#464747",
+                        "error": "#ba1a1a",
+                        "on-secondary-container": "#646464",
+                        "inverse-surface": "#2f3131",
+                        "secondary-fixed-dim": "#c7c6c6",
+                        "text-primary": "#000000",
+                        "on-tertiary-fixed": "#1b1b1b",
+                        "tertiary-fixed": "#e2e2e2",
+                        "primary-container": "#1b1b1b",
+                        "primary-fixed": "#e2e2e2",
+                        "inverse-primary": "#c6c6c6",
+                        "surface": "#f9f9f9",
+                        "on-secondary-fixed": "#1b1c1c",
+                        "on-background": "#1a1c1c"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter": "16px",
+                        "item-gap": "8px",
+                        "section-gap": "32px",
+                        "page-margin": "20px",
+                        "stack-gap": "4px"
+                    },
+                    "fontFamily": {
+                        "caption": ["Inter"],
+                        "body-bold": ["Inter"],
+                        "label-caps": ["Inter"],
+                        "page-title": ["Inter"],
+                        "body": ["Inter"],
+                        "section-header": ["Inter"],
+                        "project-number": ["Inter"]
+                    },
+                    "fontSize": {
+                        "caption": ["12px", { "lineHeight": "1.4", "fontWeight": "400" }],
+                        "body-bold": ["14px", { "lineHeight": "1.4", "fontWeight": "700" }],
+                        "label-caps": ["14px", { "lineHeight": "1.4", "fontWeight": "700" }],
+                        "page-title": ["18px", { "lineHeight": "1.4", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+                        "body": ["14px", { "lineHeight": "1.4", "fontWeight": "400" }],
+                        "section-header": ["15px", { "lineHeight": "1.4", "fontWeight": "700" }],
+                        "project-number": ["14px", { "lineHeight": "1.4", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .intro-overlay {
+            transition: opacity 1s ease;
+        }
+        .hotspot-dot {
+            width: 12px;
+            height: 12px;
+            background-color: black;
+            border-radius: 50%;
+            cursor: pointer;
+            position: absolute;
+            transform: translate(-50%, -50%);
+            transition: transform 0.2s ease;
+        }
+        .hotspot-dot:hover {
+            transform: translate(-50%, -50%) scale(1.5);
+        }
+    </style>
+</head>
+<body class="bg-background text-primary font-body overflow-hidden">
+<!-- Intro Overlay -->
+<div class="intro-overlay bg-surface fixed inset-0 z-50 flex flex-col justify-center items-center cursor-pointer" id="intro" style="opacity: 0; display: none;">
+<h1 class="font-page-title font-bold text-[32px] md:text-[64px] mb-4 text-center uppercase">RKA</h1>
+<p class="font-body text-lg md:text-xl text-center tracking-widest uppercase opacity-0 transition-opacity duration-1000" id="intro-subtitle" style="opacity: 1;">Artistic pride in different lives</p>
+<button class="absolute bottom-8 right-8 font-body-bold text-caption tracking-widest hover:text-text-muted transition-colors uppercase" id="skip-btn">Skip</button>
+</div>
+<!-- Main Landing Page -->
+<main class="fixed inset-0 w-full h-full opacity-0 pointer-events-none transition-opacity duration-1000" id="landing" style="opacity: 1; pointer-events: auto;">
+<!-- TopNavBar Structure -->
+<header class="absolute top-0 left-0 w-full z-40 flex flex-col gap-stack-gap px-page-margin pt-gutter bg-background transition-all duration-100 ease-linear">
+<div class="flex items-center gap-2">
+<h1 class="font-body-bold text-body text-primary">RKA</h1>
+
+</div>
+<nav class="flex items-center gap-6 mt-2">
+<a class="font-body-bold text-body text-text-muted hover:text-secondary transition-colors" href="#">Projects</a>
+<a class="font-body-bold text-body text-text-muted hover:text-secondary transition-colors" href="#">Furniture</a>
+<a class="font-body-bold text-body text-text-muted hover:text-secondary transition-colors" href="#">Items</a>
+<a class="font-body-bold text-body text-text-muted hover:text-secondary transition-colors" href="#">About</a>
+</nav>
+</header>
+<!-- Chaekgado Visual -->
+<div class="relative w-full h-full flex items-center justify-center pt-24 pb-8 px-page-margin">
+<div class="relative max-w-5xl w-full h-full flex items-center justify-center">
+<img alt="Architectural Bookshelf" class="max-h-full max-w-full object-contain shadow-sm border border-border-subtle" data-alt="A stark, high-contrast black and white photograph of an architectural model shelf against a raw concrete wall. The shelf contains various geometric brutalist models, rolled plans, and thick architectural monographs including 'LE CORBUSIER' and 'TAKAO ANDO'. The lighting is natural but dramatic, highlighting textures." src="https://lh3.googleusercontent.com/aida/AP1WRLvb04EWEsU_cku4R7Hj-XyEf-8CPXtiKgd3QMuSAcQ_c-rfg59lkGJH8F0_rRf3Or5ThT7S-jGJ9MVPj-lFVzP9kyVMJb5bDdVTqT8wb3Dh1f661yDkxpZBxywZ5oAciegZNR3y04Es7cvaOMEQtXkOEPebbg9rKCIXWpEkUCxJBjcH19VlqVkCG7ntdf0kn2q3X8F8qCpT07pEdEdJrPdxax0xmfxA9zmEka5Q2xOI-17VscFDN0QA6M0">
+<!-- Hotspots (Approximated positions based on typical shelf layout) -->
+<div class="hotspot-dot" data-info="MODEL 01 - BRUTALIST STRUCTURE" style="top: 30%; left: 70%;"></div>
+<div class="hotspot-dot" data-info="MONOGRAPH: KOREAN ARCHITECTURE" style="top: 55%; left: 50%;"></div>
+<div class="hotspot-dot" data-info="MODEL 02 - CONCRETE BLOCK" style="top: 80%; left: 30%;"></div>
+</div>
+</div>
+<!-- Info Overlay for Hotspots -->
+<div class="absolute bottom-12 left-page-margin z-40 opacity-0 transition-opacity duration-300 pointer-events-none max-w-md bg-background/95 p-4 border border-border-subtle" id="info-overlay">
+<h2 class="font-section-header text-section-header uppercase mb-2" id="info-title"></h2>
+<p class="font-body text-body text-on-surface-variant" id="info-desc">Selected architectural study. Highlighting the intersection of raw materiality and geometric precision.</p>
+</div>
+</main>
+<script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const intro = document.getElementById('intro');
+            const landing = document.getElementById('landing');
+            const skipBtn = document.getElementById('skip-btn');
+            const introSubtitle = document.getElementById('intro-subtitle');
+            const hotspots = document.querySelectorAll('.hotspot-dot');
+            const infoOverlay = document.getElementById('info-overlay');
+            const infoTitle = document.getElementById('info-title');
+
+            let seq1, seq2;
+
+            const hideIntro = () => {
+                intro.style.opacity = '0';
+                setTimeout(() => {
+                    intro.style.display = 'none';
+                    landing.style.opacity = '1';
+                    landing.style.pointerEvents = 'auto';
+                }, 1000);
+            };
+
+            const runSequence = () => {
+                seq1 = setTimeout(() => {
+                    introSubtitle.style.opacity = '1';
+                }, 3000);
+
+                seq2 = setTimeout(() => {
+                    hideIntro();
+                }, 6000);
+            };
+
+            runSequence();
+
+            const skipSequence = (e) => {
+                if(e) e.stopPropagation();
+                clearTimeout(seq1);
+                clearTimeout(seq2);
+                hideIntro();
+            };
+
+            intro.addEventListener('click', skipSequence);
+            skipBtn.addEventListener('click', skipSequence);
+
+            hotspots.forEach(hotspot => {
+                hotspot.addEventListener('mouseenter', (e) => {
+                    const info = e.target.getAttribute('data-info');
+                    infoTitle.textContent = info;
+                    infoOverlay.style.opacity = '1';
+                });
+                hotspot.addEventListener('mouseleave', () => {
+                    infoOverlay.style.opacity = '0';
+                });
+            });
+        });
+    </script>
+
+
+</body></html>

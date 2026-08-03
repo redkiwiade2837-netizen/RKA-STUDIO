@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RKA Website</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Inter', sans-serif; background: #0a0a0a; color: #fff; height: 100vh; display: flex; flex-direction: column; overflow: hidden; }
+
+    #topbar {
+      display: flex;
+      align-items: center;
+      background: #111;
+      border-bottom: 1px solid #222;
+      height: 44px;
+      flex-shrink: 0;
+      padding: 0 12px;
+      overflow-x: auto;
+      overflow-y: hidden;
+    }
+    #topbar::-webkit-scrollbar { height: 3px; }
+    #topbar::-webkit-scrollbar-track { background: #111; }
+    #topbar::-webkit-scrollbar-thumb { background: #333; border-radius: 2px; }
+
+    .tab-btn {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 0 14px;
+      height: 44px;
+      font-size: 12px;
+      font-weight: 500;
+      white-space: nowrap;
+      cursor: pointer;
+      border: none;
+      background: transparent;
+      color: #777;
+      border-bottom: 2px solid transparent;
+      transition: all 0.2s;
+      letter-spacing: 0.02em;
+    }
+    .tab-btn:hover { color: #ccc; background: #1a1a1a; }
+    .tab-btn.active { color: #fff; border-bottom: 2px solid #fff; background: #1a1a1a; }
+    .tab-num {
+      width: 18px; height: 18px;
+      background: #222;
+      border-radius: 50%;
+      font-size: 10px;
+      display: flex; align-items: center; justify-content: center;
+      color: #666;
+      flex-shrink: 0;
+    }
+    .tab-btn.active .tab-num { background: #333; color: #aaa; }
+
+    #frame-wrap {
+      flex: 1;
+      position: relative;
+      overflow: hidden;
+    }
+    .page-frame {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+      display: none;
+    }
+    .page-frame.active { display: block; }
+
+    .loading-overlay {
+      position: absolute;
+      inset: 0;
+      background: #0a0a0a;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      z-index: 10;
+      transition: opacity 0.4s;
+    }
+    .loading-overlay.hidden { opacity: 0; pointer-events: none; }
+    .spinner {
+      width: 36px; height: 36px;
+      border: 2px solid #222;
+      border-top-color: #fff;
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .loading-text { font-size: 12px; color: #555; letter-spacing: 0.1em; text-transform: uppercase; }
+  </style>
+</head>
+<body>
+
+  <div id="topbar">
+    <button class="tab-btn active" onclick="switchTab(0)"><span class="tab-num">1</span> Landing Page</button>
+    <button class="tab-btn" onclick="switchTab(1)"><span class="tab-num">2</span> About</button>
+    <button class="tab-btn" onclick="switchTab(2)"><span class="tab-num">3</span> Items Index</button>
+    <button class="tab-btn" onclick="switchTab(3)"><span class="tab-num">4</span> Furniture Index</button>
+    <button class="tab-btn" onclick="switchTab(4)"><span class="tab-num">5</span> Items Detail</button>
+    <button class="tab-btn" onclick="switchTab(5)"><span class="tab-num">6</span> Furniture Detail</button>
+    <button class="tab-btn" onclick="switchTab(6)"><span class="tab-num">7</span> Projects Index</button>
+    <button class="tab-btn" onclick="switchTab(7)"><span class="tab-num">8</span> Gallery Detail</button>
+    <button class="tab-btn" onclick="switchTab(8)"><span class="tab-num">9</span> Shopping Cart</button>
+    <button class="tab-btn" onclick="switchTab(9)"><span class="tab-num">10</span> Checkout</button>
+    <button class="tab-btn" onclick="switchTab(10)"><span class="tab-num">11</span> Order Confirm</button>
+  </div>
+
+  <div id="frame-wrap">
+    <div class="loading-overlay" id="loader">
+      <div class="spinner"></div>
+      <div class="loading-text">Loading</div>
+    </div>
+    <iframe class="page-frame active" src="stitch_screens/html/08_landing_page.html" id="frame-0" onload="onFrameLoad(0)"></iframe>
+    <iframe class="page-frame" src="" data-src="stitch_screens/html/01_about_page.html" id="frame-1" onload="onFrameLoad(1)"></iframe>
+    <iframe class="page-frame" src="" data-src="stitch_screens/html/02_items_index.html" id="frame-2" onload="onFrameLoad(2)"></iframe>
+    <iframe class="page-frame" src="" data-src="stitch_screens/html/03_furniture_index.html" id="frame-3" onload="onFrameLoad(3)"></iframe>
+    <iframe class="page-frame" src="" data-src="stitch_screens/html/04_items_detail.html" id="frame-4" onload="onFrameLoad(4)"></iframe>
+    <iframe class="page-frame" src="" data-src="stitch_screens/html/05_furniture_detail.html" id="frame-5" onload="onFrameLoad(5)"></iframe>
+    <iframe class="page-frame" src="" data-src="stitch_screens/html/06_projects_index.html" id="frame-6" onload="onFrameLoad(6)"></iframe>
+    <iframe class="tab-frame" src="" data-src="stitch_screens/html/07_gallery_detail.html" id="frame-7" onload="onFrameLoad(7)"></iframe>
+    <iframe class="page-frame" src="" data-src="stitch_screens/html/09_shopping_cart.html" id="frame-8" onload="onFrameLoad(8)"></iframe>
+    <iframe class="page-frame" src="" data-src="stitch_screens/html/11_checkout.html" id="frame-9" onload="onFrameLoad(9)"></iframe>
+    <iframe class="page-frame" src="" data-src="stitch_screens/html/10_order_confirmation.html" id="frame-10" onload="onFrameLoad(10)"></iframe>
+  </div>
+
+  <script>
+    let current = 0;
+    const loaded = new Set([0]);
+
+    function switchTab(idx) {
+      if (idx === current) return;
+      document.getElementById('frame-' + current).classList.remove('active');
+      document.querySelectorAll('.tab-btn')[current].classList.remove('active');
+      document.getElementById('loader').classList.remove('hidden');
+
+      const frame = document.getElementById('frame-' + idx);
+      if (!loaded.has(idx)) {
+        frame.src = frame.dataset.src;
+        loaded.add(idx);
+      } else {
+        hideLoader();
+      }
+
+      frame.classList.add('active');
+      document.querySelectorAll('.tab-btn')[idx].classList.add('active');
+      current = idx;
+    }
+
+    function onFrameLoad(idx) {
+      if (idx === current) hideLoader();
+    }
+
+    function hideLoader() {
+      setTimeout(() => { document.getElementById('loader').classList.add('hidden'); }, 200);
+    }
+  </script>
+</body>
+</html>

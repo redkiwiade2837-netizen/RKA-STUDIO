@@ -1,0 +1,319 @@
+<!DOCTYPE html><html lang="en" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Furniture Index - RKA</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-surface": "#1a1c1c",
+                      "on-tertiary": "#ffffff",
+                      "error": "#ba1a1a",
+                      "on-primary-container": "#848484",
+                      "primary-fixed": "#e2e2e2",
+                      "surface-tint": "#5e5e5e",
+                      "surface-dim": "#dadada",
+                      "on-tertiary-container": "#848484",
+                      "inverse-primary": "#c6c6c6",
+                      "on-primary": "#ffffff",
+                      "on-secondary-fixed-variant": "#464747",
+                      "primary-container": "#1b1b1b",
+                      "inverse-on-surface": "#f0f1f1",
+                      "surface-container-low": "#f3f3f4",
+                      "primary": "#000000",
+                      "on-primary-fixed-variant": "#474747",
+                      "on-secondary-container": "#646464",
+                      "secondary": "#5e5e5e",
+                      "primary-fixed-dim": "#c6c6c6",
+                      "on-background": "#1a1c1c",
+                      "on-error-container": "#93000a",
+                      "surface-container-lowest": "#ffffff",
+                      "surface-variant": "#e2e2e2",
+                      "surface-container-highest": "#e2e2e2",
+                      "on-tertiary-fixed-variant": "#474747",
+                      "error-container": "#ffdad6",
+                      "tertiary-fixed-dim": "#c6c6c6",
+                      "surface-bright": "#f9f9f9",
+                      "secondary-fixed": "#e3e2e2",
+                      "on-primary-fixed": "#1b1b1b",
+                      "tertiary-fixed": "#e2e2e2",
+                      "outline": "#7e7576",
+                      "tertiary-container": "#1b1b1b",
+                      "tertiary": "#000000",
+                      "text-muted": "#888888",
+                      "on-secondary": "#ffffff",
+                      "surface": "#f9f9f9",
+                      "inverse-surface": "#2f3131",
+                      "border-subtle": "#EEEEEE",
+                      "outline-variant": "#cfc4c5",
+                      "background": "#FFFFFF",
+                      "secondary-container": "#e3e2e2",
+                      "text-primary": "#000000",
+                      "surface-container": "#eeeeee",
+                      "on-secondary-fixed": "#1b1c1c",
+                      "on-error": "#ffffff",
+                      "on-surface-variant": "#4c4546",
+                      "secondary-fixed-dim": "#c7c6c6",
+                      "on-tertiary-fixed": "#1b1b1b",
+                      "surface-container-high": "#e8e8e8"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "stack-gap": "4px",
+                      "page-margin": "20px",
+                      "section-gap": "32px",
+                      "item-gap": "8px",
+                      "gutter": "16px"
+              },
+              "fontFamily": {
+                      "caption": [
+                              "Inter"
+                      ],
+                      "project-number": [
+                              "Inter"
+                      ],
+                      "section-header": [
+                              "Inter"
+                      ],
+                      "body-bold": [
+                              "Inter"
+                      ],
+                      "page-title": [
+                              "Inter"
+                      ],
+                      "body": [
+                              "Inter"
+                      ],
+                      "label-caps": [
+                              "Inter"
+                      ]
+              },
+              "fontSize": {
+                      "caption": [
+                              "12px",
+                              {
+                                      "lineHeight": "1.4",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "project-number": [
+                              "14px",
+                              {
+                                      "lineHeight": "1.4",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "section-header": [
+                              "15px",
+                              {
+                                      "lineHeight": "1.4",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "body-bold": [
+                              "14px",
+                              {
+                                      "lineHeight": "1.4",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "page-title": [
+                              "18px",
+                              {
+                                      "lineHeight": "1.4",
+                                      "letterSpacing": "-0.01em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "body": [
+                              "14px",
+                              {
+                                      "lineHeight": "1.4",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "label-caps": [
+                              "14px",
+                              {
+                                      "lineHeight": "1.4",
+                                      "fontWeight": "700"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+    </script>
+</head>
+<body class="bg-background text-primary font-body antialiased selection:bg-surface-variant selection:text-primary">
+<!-- TopNavBar -->
+<header class="flex flex-col gap-stack-gap w-full px-page-margin pt-gutter bg-background transition-all duration-100 ease-linear">
+<div class="flex items-center gap-2">
+<h1 class="font-body-bold text-body text-primary">RKA</h1>
+</div>
+<nav class="flex items-center gap-6 mt-2">
+<a class="font-body-bold text-body text-text-muted hover:text-secondary transition-colors" href="#">Projects</a>
+<a class="font-body-bold text-body text-primary border-b border-primary hover:text-secondary transition-colors" href="#">Furniture</a>
+<a class="font-body-bold text-body text-text-muted hover:text-secondary transition-colors" href="#">Items</a>
+<a class="font-body-bold text-body text-text-muted hover:text-secondary transition-colors" href="#">About</a>
+</nav>
+</header>
+<main class="flex flex-col md:flex-row w-full mt-section-gap px-page-margin pb-section-gap">
+<!-- SideNavBar -->
+<aside class="w-full md:w-48 flex-shrink-0 mb-section-gap md:mb-0 pr-gutter">
+<nav class="flex flex-col gap-section-gap">
+<!-- Filter Group: Index -->
+<div class="flex flex-col gap-stack-gap">
+<h2 class="font-section-header text-section-header text-primary mb-2">Index</h2>
+<ul class="flex flex-col gap-1">
+<li class=""><a class="font-body text-body text-primary hover:underline" href="#">All Years</a></li>
+<li class=""><a class="font-body text-body text-primary hover:underline" href="#">2024</a></li>
+<li class=""><a class="font-body text-body text-primary hover:underline" href="#">2023</a></li>
+<li class=""><a class="font-body text-body text-primary hover:underline" href="#">2022</a></li>
+</ul>
+</div>
+<!-- Filter Group: Type -->
+<div class="flex flex-col gap-stack-gap">
+<h2 class="font-section-header text-section-header text-primary mb-2">Type</h2>
+<ul class="flex flex-col gap-1">
+<li class=""><a class="font-body-bold text-body text-primary underline hover:underline" href="#">Seating</a></li>
+<li class=""><a class="font-body text-body text-primary hover:underline" href="#">Tables</a></li>
+<li class=""><a class="font-body text-body text-primary hover:underline" href="#">Storage</a></li>
+<li class=""><a class="font-body text-body text-primary hover:underline" href="#">Lighting</a></li>
+</ul>
+</div>
+<!-- Filter Group: Status -->
+<div class="flex flex-col gap-stack-gap">
+<h2 class="font-section-header text-section-header text-primary mb-2">Status</h2>
+<ul class="flex flex-col gap-1">
+<li class=""><a class="font-body text-body text-primary hover:underline" href="#">Production</a></li>
+<li class=""><a class="font-body text-body text-primary hover:underline" href="#">Prototype</a></li>
+<li class=""><a class="font-body text-body text-primary hover:underline" href="#">Concept</a></li>
+</ul>
+</div>
+<!-- Filter Group: Location -->
+<div class="flex flex-col gap-stack-gap">
+<h2 class="font-section-header text-section-header text-primary mb-2">Location</h2>
+<ul class="flex flex-col gap-1">
+<li class=""><a class="font-body text-body text-primary hover:underline" href="#">Zurich</a></li>
+<li class=""><a class="font-body text-body text-primary hover:underline" href="#">Milan</a></li>
+<li class=""><a class="font-body text-body text-primary hover:underline" href="#">Berlin</a></li>
+</ul>
+</div>
+</nav>
+</aside>
+<!-- Project Grid -->
+<section class="flex-grow">
+<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-gutter">
+<!-- Grid Item 1 -->
+<article class="flex flex-col group cursor-pointer">
+<div class="mb-item-gap">
+<span class="font-project-number text-project-number">01</span>
+<span class="font-label-caps text-label-caps uppercase mx-1">SLAB CHAIR</span>
+<span class="font-body text-body">– Zurich</span>
+</div>
+<div class="aspect-square bg-surface-container overflow-hidden">
+<img class="w-full h-full object-cover grayscale transition-opacity duration-300 group-hover:opacity-80" data-alt="A stark, minimalist black and white photograph of a brutalist chair made entirely from thick, concrete-like slabs. The chair is positioned centrally in an empty, brightly lit white studio. High contrast, sharp shadows, architectural photography style, zero decorative elements, emphasizing structural honesty and raw materials." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBOqzbCbik3C0WzL3N1I48wdMm1_pTfLTN-iAZdUYKaaQc5M1u01_cm0rUqljhu3PFVKnB1XuAZigFgSkRIvgt5PsB5Zwt_iRVEAG9MgDXnwLBxCvuwhK4hHMejpcxfMiLrHL48B_lHtNEr5UbW-c_ASeM_kzhZ2OlNdcHTHDLVs9UB0kxKEei3Ca2NpjBWgCZ-krfaU0XGrM0i1DycKbhIZV9FmXO5b28dHIo7UP072Sdoq0jEdfpz">
+</div>
+</article>
+<!-- Grid Item 2 -->
+<article class="flex flex-col group cursor-pointer">
+<div class="mb-item-gap">
+<span class="font-project-number text-project-number">02</span>
+<span class="font-label-caps text-label-caps uppercase mx-1">STEEL TRESTLE</span>
+<span class="font-body text-body">– Milan</span>
+</div>
+<div class="aspect-square bg-surface-container overflow-hidden">
+<img class="w-full h-full object-cover grayscale transition-opacity duration-300 group-hover:opacity-80" data-alt="A high-contrast black and white architectural photograph of a minimalist table base consisting of thin, intersecting steel structural profiles. The piece rests on a smooth concrete floor against a pure white background. The lighting is diffused, highlighting the metallic texture and precise joints. Purely functional, brutalist aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBF0yHmezEG5K7QGj7fEBKTTe2rclDsvOXTon3iSlAflX2q0_OmzCGKsG5MOGpJQjeqRB14pa7nBeAGY4qUZs8GaZYChNREq-4ub611Oj1o43EOE-LmEuHJYzJhK1V0P3R3Kyw0QYVxYwNvK7niwvPxRVZMhoQXGudWNDC1PQyPH31mKEfH517Frc5l0ghuj6-7bPZGe-oVGH89QTqnk_YtQEIuCBUF66NJO8AVuK7ws_lLD42PC9jd">
+</div>
+</article>
+<!-- Grid Item 3 -->
+<article class="flex flex-col group cursor-pointer">
+<div class="mb-item-gap">
+<span class="font-project-number text-project-number">03</span>
+<span class="font-label-caps text-label-caps uppercase mx-1">PLYWOOD SHELF</span>
+<span class="font-body text-body">– Berlin</span>
+</div>
+<div class="aspect-square bg-surface-container overflow-hidden">
+<img class="w-full h-full object-cover grayscale transition-opacity duration-300 group-hover:opacity-80" data-alt="A stark black and white image of a modular shelving unit constructed from raw plywood. The shelves are empty, emphasizing the strict geometric grid and exposed joinery. The lighting is harsh and direct, casting deep, sharp shadows on the white wall behind it. Austere, utilitarian design language, no decoration." src="https://lh3.googleusercontent.com/aida-public/AB6AXuATR9cCmLYEJ8XXHfoYsz-bRAH476S_H8_xzmhNYLfE8Nj-qx8Qny6MSbUV7OFnHIk_RwEl1nkPt3aFiotdFAg91emIXmYL8j1VsecIiVwJQRilQgS13gn13vMqMgBegRbY0MtLlwsKcUtKC4UJCuyXzE2S7_PRMr9KDwLxP-CP9sWUOZxaQiIO-3QS54k1ZTHjMFBC74pfe2OLFBMK-txyh44rhXl75FsPoqOgL9l0_0jjqgjQWt2A">
+</div>
+</article>
+<!-- Grid Item 4 -->
+<article class="flex flex-col group cursor-pointer">
+<div class="mb-item-gap">
+<span class="font-project-number text-project-number">04</span>
+<span class="font-label-caps text-label-caps uppercase mx-1">FOLD BENCH</span>
+<span class="font-body text-body">– Zurich</span>
+</div>
+<div class="aspect-square bg-surface-container overflow-hidden">
+<img class="w-full h-full object-cover grayscale transition-opacity duration-300 group-hover:opacity-80" data-alt="Minimalist black and white architectural photography of a low bench formed from a single folded sheet of heavy-gauge aluminum. The object sits alone in a bright, white-washed space. The finish is matte, and the form is entirely dictated by the manufacturing process. Brutalist, clinical, highly rational design." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDvVqtRrwa80alL2s-qeTK5SR3cGGF6vftHdzIWLS9dhdRCKIW63tedHgS7tMBfkzjo0QGx8Zu-jSFAUEIxSDcS5rSI0t3WZMkxJaCLkZOy9f2i4sBwq6ZpQEQ21qQudJT2_g2C6YCr4ar16XzyMMiM0rgH7S7NCqaQfauy8KHkbzrnP-9rIhf88S5JAXeULBWmWDI0fTcfd_m2dcKXF3OUjl9au-E8LcK36YCAKS3fiwH4Fpi3cKzt">
+</div>
+</article>
+<!-- Grid Item 5 -->
+<article class="flex flex-col group cursor-pointer">
+<div class="mb-item-gap">
+<span class="font-project-number text-project-number">05</span>
+<span class="font-label-caps text-label-caps uppercase mx-1">TUBE STOOL</span>
+<span class="font-body text-body">– Milan</span>
+</div>
+<div class="aspect-square bg-surface-container overflow-hidden">
+<img class="w-full h-full object-cover grayscale transition-opacity duration-300 group-hover:opacity-80" data-alt="A black and white photograph of a simple stool made from bent steel tubing with a flat timber seat. Shot in a bright, neutral gallery space. The image focuses on the precise geometry and unadorned materials. High contrast, sharp focus, architectural aesthetic, conveying a sense of industrial production." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCsZkAQJhChX3dHH6lYrxX3cAQ3PcDV0oW4t61qJ8-dl_jI7be9YccuaQ9TrUtJeqYoWyKnVgl0LCWvtaVj4hb2YKqy2uXSE2ps0SvjZUbrVhqHBl6Un3dphMUVMt8ZyB_8wUlFdbDYBckqyVp52oYXqq0URz2HjmBTPg8V-q-3W-Xnz21vZxckLMUkyVp-XZJYsz9wvVXhEKRgFPUwnlUllHzXdgJRkDkbTa-SF3Kj71TEP0qYlrac">
+</div>
+</article>
+<!-- Grid Item 6 -->
+<article class="flex flex-col group cursor-pointer">
+<div class="mb-item-gap">
+<span class="font-project-number text-project-number">06</span>
+<span class="font-label-caps text-label-caps uppercase mx-1">MONOLITH DESK</span>
+<span class="font-body text-body">– Berlin</span>
+</div>
+<div class="aspect-square bg-surface-container overflow-hidden">
+<img class="w-full h-full object-cover grayscale transition-opacity duration-300 group-hover:opacity-80" data-alt="A dramatic black and white architectural shot of a massive, solid-looking desk. The design is a pure rectangular block with no visible hardware or seams. Shot against a white wall with strong, directional lighting that emphasizes its sheer mass and brutalist presence. Austere, commanding, completely devoid of ornament." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDZcBso0A8jIzMmy_oJtKY4wcCeVTCQdGBwpfhNrkKXxB-7iXvE-GR9cIqAva9vWZo0auNZVOS6zCrh8Fnb1fqWUwzSPLQP-2pkbK7lnyPFuOzVvs37gC0v08FUIcwiWmE_uGYBGbPligvDx3CCWxi4rs7HF82x2VG3gpeDm6Fc-Uqi61x-8T4ycMcA-yMrLhQHko8_95EFHM-YygvEVWNcOD_tsTRCTexJI_qhj_wg83Xwlhc-LOH1">
+</div>
+</article>
+<!-- Grid Item 7 -->
+<article class="flex flex-col group cursor-pointer">
+<div class="mb-item-gap">
+<span class="font-project-number text-project-number">07</span>
+<span class="font-label-caps text-label-caps uppercase mx-1">WIRE CHAIR</span>
+<span class="font-body text-body">– Zurich</span>
+</div>
+<div class="aspect-square bg-surface-container overflow-hidden">
+<img class="w-full h-full object-cover grayscale transition-opacity duration-300 group-hover:opacity-80" data-alt="Stark black and white photography of a chair constructed entirely from an intricate web of thin steel wire. The complex wire frame casts a dense, graphic shadow on the plain white floor. The lighting is sharp, creating a high-contrast study in form and transparency. Utilitarian, rationalist approach." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBZXeycPY7zXxCHN6d5xohZq0pAjVBD9q_lEn8CxyXM8A9G2pf56sXnV-1G9r0nmMptR5Zd1FwAxWZiwkw5LQ31WlIToWxNUS6SYVt8JhL1W18hys0iO08oR7k784aPrPlL-afyhhdqysM9Bm4z-yAxhBCFqUP1NtxEZxF_9Zubl28WPUQ3CeW_tp2Go7-6GFE2-03UK0U_k_IXF_CG-WIkuLfQUK6PJKKYTfZDFxmXCFK7D_mRM7d-">
+</div>
+</article>
+<!-- Grid Item 8 -->
+<article class="flex flex-col group cursor-pointer">
+<div class="mb-item-gap">
+<span class="font-project-number text-project-number">08</span>
+<span class="font-label-caps text-label-caps uppercase mx-1">BLOCK TABLE</span>
+<span class="font-body text-body">– Milan</span>
+</div>
+<div class="aspect-square bg-surface-container overflow-hidden">
+<img class="w-full h-full object-cover grayscale transition-opacity duration-300 group-hover:opacity-80" data-alt="A minimalist black and white architectural photograph of a low coffee table made from raw cinder blocks and a plate glass top. The rough texture of the concrete contrasts with the smooth glass. Photographed in an empty white studio space. Brutalist aesthetic, focusing on raw materiality and basic structural logic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCC_qlVQ_fgqU4NLYelNUFx-NXenTUzybfaAjvAlPLn8pl8G8ApMIrQ6DKA0ghrqABQf3t84NKR2hkbkSS4rAZWUAQ3OiYK-Og95mGPf_KECxWPh0bnzP011wrJym4LPedEjtL-IbBGs3cDDrmgywol_0VNcFw9rm_t9UG3xiLDwqTCRnvtJE165O8M5euof0DKW2Wr_rDIdr2f--_59qUULlGqMaQ9cGfg56qJz2SYk1fZuO-tmSCv">
+</div>
+</article>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="flex justify-between items-center w-full px-page-margin py-gutter bg-background border-t border-border-subtle mt-section-gap">
+<div class="flex gap-4">
+<a class="font-caption text-caption text-primary hover:text-secondary transition-colors" href="#">Instagram</a>
+<a class="font-caption text-caption text-primary hover:text-secondary transition-colors" href="#">Contact</a>
+</div>
+</footer>
+</body></html>
