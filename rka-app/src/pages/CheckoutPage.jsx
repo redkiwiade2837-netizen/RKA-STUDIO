@@ -2,70 +2,80 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
 import PayPalCheckout from '../components/PayPalCheckout';
-import TossCheckout from '../components/TossCheckout';
+
+const EMPTY_SHIPPING = {
+  email: '',
+  firstName: '',
+  lastName: '',
+  address: '',
+  city: '',
+  state: '',
+  zip: '',
+};
 
 export default function CheckoutPage() {
-  const [paymentMethod, setPaymentMethod] = useState('paypal');
   const { cartItems, cartTotal } = useCart();
   const navigate = useNavigate();
+  const [shippingInfo, setShippingInfo] = useState(EMPTY_SHIPPING);
 
   const shipping = 25.00;
   const tax = cartTotal * 0.085;
   const grandTotal = cartTotal + shipping + tax;
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    navigate('/order-confirmation');
+  const shippingComplete = Object.values(shippingInfo).every((value) => value.trim() !== '');
+
+  const handleShippingChange = (field) => (e) => {
+    setShippingInfo((prev) => ({ ...prev, [field]: e.target.value }));
   };
 
   return (
     <div className="flex-grow w-full px-page-margin py-section-gap">
       <div className="max-w-[1200px] mx-auto">
         <h1 className="font-page-title text-page-title mb-section-gap">Checkout</h1>
-        
-        <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-gutter">
+
+        <form onSubmit={(e) => e.preventDefault()} className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-gutter">
           {/* Left Column: Forms */}
           <div className="md:col-span-8 flex flex-col gap-section-gap">
-            
+
             <section>
               <h2 className="font-section-header text-section-header mb-6 border-b border-primary pb-2">Shipping Information</h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-x-gutter gap-y-6">
                 <div className="col-span-1 md:col-span-2">
                   <div className="flex items-center gap-4">
                     <label className="label-brutal w-32 mb-0 flex-shrink-0">Email Address</label>
-                    <input type="email" required className="input-brutal" placeholder="email@example.com" />
+                    <input type="email" required className="input-brutal" placeholder="email@example.com" value={shippingInfo.email} onChange={handleShippingChange('email')} />
                   </div>
                 </div>
                 <div className="col-span-1">
                   <div className="flex items-center gap-4">
                     <label className="label-brutal w-32 mb-0 flex-shrink-0">First Name</label>
-                    <input type="text" required className="input-brutal" />
+                    <input type="text" required className="input-brutal" value={shippingInfo.firstName} onChange={handleShippingChange('firstName')} />
                   </div>
                 </div>
                 <div className="col-span-1">
                   <div className="flex items-center gap-4">
                     <label className="label-brutal w-32 mb-0 flex-shrink-0">Last Name</label>
-                    <input type="text" required className="input-brutal" />
+                    <input type="text" required className="input-brutal" value={shippingInfo.lastName} onChange={handleShippingChange('lastName')} />
                   </div>
                 </div>
                 <div className="col-span-1 md:col-span-2">
                   <div className="flex items-center gap-4">
                     <label className="label-brutal w-32 mb-0 flex-shrink-0">Street Address</label>
-                    <input type="text" required className="input-brutal" />
+                    <input type="text" required className="input-brutal" value={shippingInfo.address} onChange={handleShippingChange('address')} />
                   </div>
                 </div>
                 <div className="col-span-1 md:col-span-2 flex flex-col gap-y-6">
                   <div className="flex items-center gap-4">
                     <label className="label-brutal w-32 flex-shrink-0 mb-0">City</label>
-                    <input type="text" required className="input-brutal" />
+                    <input type="text" required className="input-brutal" value={shippingInfo.city} onChange={handleShippingChange('city')} />
                   </div>
                   <div className="flex items-center gap-4">
                     <label className="label-brutal w-32 flex-shrink-0 mb-0">State/Province</label>
-                    <input type="text" required className="input-brutal" />
+                    <input type="text" required className="input-brutal" value={shippingInfo.state} onChange={handleShippingChange('state')} />
                   </div>
                   <div className="flex items-center gap-4">
                     <label className="label-brutal w-32 flex-shrink-0 mb-0">ZIP</label>
-                    <input type="text" required className="input-brutal" />
+                    <input type="text" required className="input-brutal" value={shippingInfo.zip} onChange={handleShippingChange('zip')} />
                   </div>
                 </div>
               </div>
@@ -79,15 +89,10 @@ export default function CheckoutPage() {
                   <span className="font-caption text-caption">Secure Encrypted Transaction</span>
                 </div>
               </div>
-              
-              <div className="flex gap-4 mb-6">
-                <button type="button" onClick={() => setPaymentMethod('paypal')} className={`tab-btn ${paymentMethod === 'paypal' ? 'active' : ''}`}>PayPal</button>
-                <button type="button" onClick={() => setPaymentMethod('toss')} className={`tab-btn ${paymentMethod === 'toss' ? 'active' : ''}`}>Toss</button>
-              </div>
 
-              {paymentMethod === 'paypal' && (
-                <div className="space-y-6 w-full text-center py-4">
-                  <p className="font-body text-body text-text-muted mb-4">Pay securely with PayPal.</p>
+              <div className="space-y-6 w-full text-center py-4">
+                <p className="font-body text-body text-text-muted mb-4">Pay securely with PayPal.</p>
+                {shippingComplete ? (
                   <PayPalCheckout
                     cartItems={cartItems}
                     onSuccess={(order) => {
@@ -99,22 +104,12 @@ export default function CheckoutPage() {
                       alert("Payment failed or was cancelled.");
                     }}
                   />
-                </div>
-              )}
-
-              {paymentMethod === 'toss' && (
-                <div className="space-y-6 w-full text-center py-4">
-                  <p className="font-body text-body text-text-muted mb-4">토스페이먼츠로 안전하게 결제하세요.</p>
-                  <TossCheckout
-                    cartItems={cartItems}
-                    onError={(err) => {
-                      console.error('Toss Error:', err);
-                      alert('결제 중 오류가 발생했습니다.');
-                    }}
-                  />
-                </div>
-              )}
-
+                ) : (
+                  <p className="font-caption text-caption text-error">
+                    Please fill in all shipping information above before proceeding to payment.
+                  </p>
+                )}
+              </div>
             </section>
           </div>
 
@@ -122,7 +117,7 @@ export default function CheckoutPage() {
           <div className="md:col-span-4">
             <div className="bg-surface p-6 sticky top-8">
               <h2 className="font-section-header text-section-header mb-6 border-b border-primary pb-2">Order Summary</h2>
-              
+
               <div className="space-y-4 mb-8">
                 {cartItems.map(item => (
                   <div key={item.id} className="flex gap-4">
