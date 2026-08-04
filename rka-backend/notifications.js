@@ -33,6 +33,18 @@ function getSheetsClient() {
   return sheetsClient;
 }
 
+// The default tab name depends on the sheet owner's language (e.g. "Sheet1"
+// vs "시트1"), so it's resolved from the spreadsheet itself rather than
+// assumed, and cached for the life of the process.
+let firstSheetTitle = null;
+async function getFirstSheetTitle() {
+  if (!firstSheetTitle) {
+    const { data } = await getSheetsClient().spreadsheets.get({ spreadsheetId: GOOGLE_SHEET_ID });
+    firstSheetTitle = data.sheets[0].properties.title;
+  }
+  return firstSheetTitle;
+}
+
 let mailTransport = null;
 function getMailTransport() {
   if (!mailTransport) {
@@ -52,9 +64,10 @@ async function appendOrderToSheet(order) {
   if (!sheetsConfigured) return;
   const { timestamp, paymentMethod, orderId, shippingInfo, items, total } = order;
 
+  const sheetTitle = await getFirstSheetTitle();
   await getSheetsClient().spreadsheets.values.append({
     spreadsheetId: GOOGLE_SHEET_ID,
-    range: "Sheet1!A:I",
+    range: `${sheetTitle}!A:I`,
     valueInputOption: "RAW",
     insertDataOption: "INSERT_ROWS",
     requestBody: {

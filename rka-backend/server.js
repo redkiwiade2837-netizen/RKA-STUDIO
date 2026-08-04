@@ -3,6 +3,7 @@ const crypto = require("crypto");
 const express = require("express");
 const cors = require("cors");
 const { PRODUCTS, priceCartItems } = require("./products");
+const { notifyOrderCompleted } = require("./notifications");
 
 const app = express();
 
@@ -95,6 +96,7 @@ app.post("/api/orders", async (req, res) => {
 app.post("/api/orders/:orderID/capture", async (req, res) => {
   try {
     const { orderID } = req.params;
+    const { shippingInfo, items } = req.body;
     const accessToken = await generateAccessToken();
     const url = `${PAYPAL_API_BASE}/v2/checkout/orders/${orderID}/capture`;
 
@@ -108,6 +110,24 @@ app.post("/api/orders/:orderID/capture", async (req, res) => {
 
     const data = await response.json();
     res.status(response.status).json(data);
+
+    // Payment already succeeded at this point (response sent above) — a
+    // notification failure below must never affect what the buyer sees.
+    if (response.ok && shippingInfo && Array.isArray(items)) {
+      try {
+        const pricing = priceCartItems(items);
+        await notifyOrderCompleted({
+          timestamp: new Date().toISOString(),
+          paymentMethod: "PayPal",
+          orderId: orderID,
+          shippingInfo,
+          items: items.map(({ id, quantity }) => ({ title: PRODUCTS[id]?.title || id, quantity })),
+          total: pricing.total.toFixed(2),
+        });
+      } catch (notifyError) {
+        console.error("Order notification failed:", notifyError);
+      }
+    }
   } catch (error) {
     console.error("Failed to capture order:", error);
     res.status(500).json({ error: "Failed to capture order." });

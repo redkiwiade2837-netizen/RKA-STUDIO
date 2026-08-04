@@ -95,6 +95,7 @@ export default function CheckoutPage() {
                 {shippingComplete ? (
                   <PayPalCheckout
                     cartItems={cartItems}
+                    shippingInfo={shippingInfo}
                     onSuccess={(order) => {
                       console.log("PayPal Order completed:", order);
                       navigate('/order-confirmation');

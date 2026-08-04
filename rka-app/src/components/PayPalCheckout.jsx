@@ -2,7 +2,7 @@ import React from 'react';
 import { PayPalButtons } from '@paypal/react-paypal-js';
 import { API_BASE_URL } from '../config';
 
-const PayPalCheckout = ({ cartItems, onSuccess, onError }) => {
+const PayPalCheckout = ({ cartItems, shippingInfo, onSuccess, onError }) => {
   const createOrder = async () => {
     try {
       // Call the backend to create an order. The backend prices the order
@@ -37,12 +37,18 @@ const PayPalCheckout = ({ cartItems, onSuccess, onError }) => {
 
   const onApprove = async (data, actions) => {
     try {
-      // Call the backend to capture the order
+      // Call the backend to capture the order. shippingInfo rides along here
+      // (rather than at order creation) since it's only needed once payment
+      // actually succeeds, for the order notification.
       const response = await fetch(`${API_BASE_URL}/api/orders/${data.orderID}/capture`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
+        body: JSON.stringify({
+          shippingInfo,
+          items: cartItems.map(({ id, quantity }) => ({ id, quantity })),
+        }),
       });
       
       const orderData = await response.json();
