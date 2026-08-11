@@ -2,11 +2,13 @@ import React, { useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
 import { items, furniture } from '../data/data';
+import { useLanguage } from '../context/LanguageContext';
 
 export default function ItemsDetail() {
   const { id } = useParams();
   const navigate = useNavigate();
   const { addToCart } = useCart();
+  const { t } = useLanguage();
   const [showInfo, setShowInfo] = useState(false);
   const [imgOpacity, setImgOpacity] = useState(1);
   
@@ -87,11 +89,11 @@ export default function ItemsDetail() {
               )) : (
                 <>
                   <div className="flex justify-between font-body text-body">
-                    <span className="text-secondary">Dimensions</span>
+                    <span className="text-secondary">{t('productDetail.dimensions')}</span>
                     <span>{item.dimensions}</span>
                   </div>
                   <div className="flex justify-between font-body text-body">
-                    <span className="text-secondary">Material</span>
+                    <span className="text-secondary">{t('productDetail.material')}</span>
                     <span>{item.material}</span>
                   </div>
                 </>
@@ -112,7 +114,7 @@ export default function ItemsDetail() {
             onClick={() => setShowInfo(!showInfo)}
             className="font-body text-body uppercase tracking-wider absolute left-1/2 -translate-x-1/2 hover:underline underline-offset-4 decoration-1 cursor-pointer transition-all"
           >
-            {showInfo ? 'Close Info' : 'Info'}
+            {showInfo ? t('productDetail.closeInfo') : t('productDetail.info')}
           </button>
         </div>
         <div className="w-1/3 text-right flex justify-end items-center gap-4">
@@ -120,17 +122,16 @@ export default function ItemsDetail() {
             onClick={(e) => {
               handleAddToCart();
               const btn = e.target;
-              const originalText = btn.innerText;
-              btn.innerText = 'ADDED!';
+              btn.innerText = t('productDetail.added');
               btn.classList.add('text-secondary');
               setTimeout(() => {
-                btn.innerText = 'ADD TO CART';
+                btn.innerText = t('productDetail.addToCart');
                 btn.classList.remove('text-secondary');
               }, 1500);
             }}
             className="font-body text-body uppercase tracking-wider hover:underline underline-offset-4 decoration-1 cursor-pointer transition-all"
           >
-            Add to Cart
+            {t('productDetail.addToCart')}
           </button>
         </div>
       </footer>

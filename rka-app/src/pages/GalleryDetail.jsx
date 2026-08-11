@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { projects } from '../data/data';
+import { useLanguage } from '../context/LanguageContext';
 
 // Data Arrays from original design
 const photos = [
@@ -21,7 +22,8 @@ export default function GalleryDetail() {
   const [drawingIndex, setDrawingIndex] = useState(0);
   const navigate = useNavigate();
   const { id } = useParams();
-  
+  const { t } = useLanguage();
+
   // Try to find project, fallback to default title
   const project = projects.find(p => p.id === id);
   const title = project ? project.title : 'PROJECT TITLE';
@@ -76,7 +78,7 @@ export default function GalleryDetail() {
           <span>{photoIndex + 1}</span>/{photos.length}
         </div>
         <button className="font-body text-body uppercase tracking-wider absolute left-1/2 -translate-x-1/2 hover:underline underline-offset-4 decoration-1 cursor-pointer transition-all">
-          Info
+          {t('productDetail.info')}
         </button>
         <div className="font-body text-body text-text-muted">
           <span>{drawingIndex + 1}</span>/{drawings.length}
