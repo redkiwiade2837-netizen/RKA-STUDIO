@@ -14,7 +14,6 @@ export default function GalleryDetail() {
   // Try to find project, fallback to default title
   const project = projects.find(p => p.id === id);
   const title = project ? project.title : 'PROJECT TITLE';
-  const number = project ? `OFFICE ${project.number}` : 'OFFICE 417';
 
   // Left/Right numbered files ("1", "2"...) become the cycling gallery;
   // projects that don't use that convention yet just cycle a single image.
@@ -34,8 +33,8 @@ export default function GalleryDetail() {
       
       {/* Top Bar */}
       <header className="flex justify-between items-center px-page-margin py-gutter w-full shrink-0 relative z-50">
-        <div className="font-body-bold text-body uppercase">RKA — {title}</div>
-        <div className="font-body text-body absolute left-1/2 -translate-x-1/2 uppercase">{number}</div>
+        <div className="font-body-bold text-body uppercase">RKA</div>
+        <div className="font-body text-body absolute left-1/2 -translate-x-1/2 uppercase">{title}</div>
         <button className="font-body text-body hover:opacity-50 transition-opacity" onClick={() => navigate(-1)}>
           ✕
         </button>
