@@ -15,7 +15,9 @@ const CATEGORIES = [
   ['Items', 'items'],
 ];
 
-const FOLDER_NAME_RE = /^(\d+)\s+(.+)$/;
+// "001 Plan House (Housing)" -> number/title/type. The "(Type)" suffix is
+// optional — "003 Heeyun" is still valid, just with no type.
+const FOLDER_NAME_RE = /^(\d+)\s+(.+?)(?:\s*\(([^)]+)\))?$/;
 const IMAGE_RE = /\.(jpe?g|png|webp|gif|avif)$/i;
 // A file named like "(.1.).jpg" marks the thumbnail shown on the index card
 // (and its hover swap) — kept separate from the numbered sequence below so
@@ -93,7 +95,7 @@ export function mediaSyncPlugin() {
         for (const entry of entries) {
           const match = entry.name.match(FOLDER_NAME_RE);
           if (!match) continue;
-          const [, number, title] = match;
+          const [, number, title, type] = match;
 
           const productDir = path.join(categoryDir, entry.name);
           const left = readImageFolder(path.join(productDir, 'Left'));
@@ -131,7 +133,7 @@ export function mediaSyncPlugin() {
             return `/media/${key}/${slug}/${destName}`;
           });
 
-          products.push({ number, title, img, imgHover, photos, drawings });
+          products.push({ number, title, img, imgHover, photos, drawings, type: type || null });
         }
       }
 

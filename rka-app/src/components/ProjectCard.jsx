@@ -13,7 +13,7 @@ export default function ProjectCard({ project }) {
         <img 
           src={project.img} 
           alt={project.title} 
-          className="absolute inset-0 w-full h-full object-cover grayscale img-primary" 
+          className="absolute inset-0 w-full h-full object-cover img-primary"
         />
         <img 
           src={project.imgHover || project.img} 
