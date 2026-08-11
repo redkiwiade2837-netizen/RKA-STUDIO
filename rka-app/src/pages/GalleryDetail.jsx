@@ -59,7 +59,7 @@ export default function GalleryDetail() {
             id="drawing-img"
             src={drawings[drawingIndex]} 
             alt="Architectural Drawing" 
-            className="max-h-full max-w-full object-contain grayscale opacity-80 transition-opacity duration-300 ease-in-out group-hover:opacity-70"
+            className="max-h-full max-w-full object-contain opacity-80 transition-opacity duration-300 ease-in-out group-hover:opacity-70"
           />
         </div>
       </main>
