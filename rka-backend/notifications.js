@@ -45,6 +45,34 @@ async function getFirstSheetTitle() {
   return firstSheetTitle;
 }
 
+// Contact inquiries live in their own tab (not mixed in with order rows,
+// which have a different column shape) on the same spreadsheet, so only one
+// GOOGLE_SHEET_ID needs to be configured. Created on first use if missing —
+// a fresh spreadsheet won't have a "Contact" tab yet.
+const CONTACT_SHEET_TITLE = "Contact";
+let contactSheetEnsured = false;
+async function ensureContactSheet() {
+  if (contactSheetEnsured) return;
+  const { data } = await getSheetsClient().spreadsheets.get({ spreadsheetId: GOOGLE_SHEET_ID });
+  const exists = data.sheets.some((s) => s.properties.title === CONTACT_SHEET_TITLE);
+  if (!exists) {
+    await getSheetsClient().spreadsheets.batchUpdate({
+      spreadsheetId: GOOGLE_SHEET_ID,
+      requestBody: {
+        requests: [{ addSheet: { properties: { title: CONTACT_SHEET_TITLE } } }],
+      },
+    });
+    await getSheetsClient().spreadsheets.values.append({
+      spreadsheetId: GOOGLE_SHEET_ID,
+      range: `${CONTACT_SHEET_TITLE}!A:E`,
+      valueInputOption: "RAW",
+      insertDataOption: "INSERT_ROWS",
+      requestBody: { values: [["시간", "문의유형", "이메일", "문의내용", "상태"]] },
+    });
+  }
+  contactSheetEnsured = true;
+}
+
 let mailTransport = null;
 function getMailTransport() {
   if (!mailTransport) {
@@ -123,4 +151,50 @@ async function notifyOrderCompleted(order) {
   });
 }
 
-module.exports = { notifyOrderCompleted, sheetsConfigured, emailConfigured };
+// Contact inquiries are appended with 상태="신규" — the RKA AI 직원 desktop app
+// (하늘) polls this same sheet/tab looking for that status, drafts a reply,
+// and only marks it 처리됨 once a person approves sending it. This function
+// only records the inquiry; it never sends a reply itself.
+async function appendContactToSheet(inquiry) {
+  if (!sheetsConfigured) return;
+  await ensureContactSheet();
+  const { timestamp, category, email, message } = inquiry;
+  await getSheetsClient().spreadsheets.values.append({
+    spreadsheetId: GOOGLE_SHEET_ID,
+    range: `${CONTACT_SHEET_TITLE}!A:E`,
+    valueInputOption: "RAW",
+    insertDataOption: "INSERT_ROWS",
+    requestBody: { values: [[timestamp, category, email, message, "신규"]] },
+  });
+}
+
+async function sendContactAlertEmail(inquiry) {
+  if (!emailConfigured) return;
+  const { timestamp, category, email, message } = inquiry;
+  await getMailTransport().sendMail({
+    from: EMAIL_USER,
+    to: EMAIL_TO,
+    subject: `[RKA 웹사이트 문의] ${category}`,
+    text: [
+      `문의 유형: ${category}`,
+      `보낸 사람: ${email}`,
+      `시간: ${timestamp}`,
+      "",
+      message,
+    ].join("\n"),
+  });
+}
+
+async function notifyContactInquiry(inquiry) {
+  const results = await Promise.allSettled([
+    appendContactToSheet(inquiry),
+    sendContactAlertEmail(inquiry),
+  ]);
+  results.forEach((result, i) => {
+    if (result.status === "rejected") {
+      console.error(`Contact notification failed (${i === 0 ? "sheet" : "email"}):`, result.reason);
+    }
+  });
+}
+
+module.exports = { notifyOrderCompleted, notifyContactInquiry, sheetsConfigured, emailConfigured };

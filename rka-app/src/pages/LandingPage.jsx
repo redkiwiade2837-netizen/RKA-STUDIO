@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useLanguage } from '../context/LanguageContext';
 
 export default function LandingPage() {
   const [showIntro, setShowIntro] = useState(true);
   const [showSubtitle, setShowSubtitle] = useState(false);
   const [hoverInfo, setHoverInfo] = useState('');
   const navigate = useNavigate();
+  const { t } = useLanguage();
 
   useEffect(() => {
     const t1 = setTimeout(() => setShowSubtitle(true), 3000);
@@ -29,13 +31,13 @@ export default function LandingPage() {
         >
           <h1 className="font-page-title text-[32px] md:text-[64px] mb-4 text-center uppercase tracking-widest">RKA</h1>
           <p className={`font-body text-lg md:text-xl text-center tracking-widest uppercase transition-opacity duration-1000 ${showSubtitle ? 'opacity-100' : 'opacity-0'}`}>
-            Artistic pride in different lives
+            {t('landing.subtitle')}
           </p>
-          <button 
+          <button
             className="absolute bottom-8 right-8 font-body-bold text-caption tracking-widest hover:text-text-muted transition-colors uppercase"
             onClick={handleSkip}
           >
-            Skip
+            {t('landing.skip')}
           </button>
         </div>
       )}
@@ -80,7 +82,7 @@ export default function LandingPage() {
       >
         <h2 className="font-section-header text-section-header uppercase mb-2">{hoverInfo}</h2>
         <p className="font-body text-body text-on-surface-variant">
-          Selected architectural study. Highlighting the intersection of raw materiality and geometric precision.
+          {t('landing.caption')}
         </p>
       </div>
     </div>

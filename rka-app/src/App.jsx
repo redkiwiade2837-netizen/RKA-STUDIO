@@ -2,6 +2,7 @@ import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
+import FloatingCartButton from './components/FloatingCartButton';
 
 // Placeholder imports for pages
 import LandingPage from './pages/LandingPage';
@@ -12,6 +13,7 @@ import FurnitureIndex from './pages/FurnitureIndex';
 import FurnitureDetail from './pages/FurnitureDetail';
 import ProjectsIndex from './pages/ProjectsIndex';
 import GalleryDetail from './pages/GalleryDetail';
+import ContactPage from './pages/ContactPage';
 import CartPage from './pages/CartPage';
 import CheckoutPage from './pages/CheckoutPage';
 import OrderConfirmation from './pages/OrderConfirmation';
@@ -32,6 +34,7 @@ function App() {
           <Route path="/furniture/:id" element={<FurnitureDetail />} />
           <Route path="/projects" element={<ProjectsIndex />} />
           <Route path="/projects/:id" element={<GalleryDetail />} />
+          <Route path="/contact" element={<ContactPage />} />
           <Route path="/cart" element={<CartPage />} />
           <Route path="/checkout" element={<CheckoutPage />} />
           <Route path="/order-confirmation" element={<OrderConfirmation />} />
@@ -40,6 +43,7 @@ function App() {
         </Routes>
       </main>
       <Footer />
+      <FloatingCartButton />
     </div>
   );
 }

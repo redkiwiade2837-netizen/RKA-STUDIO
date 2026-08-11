@@ -4,6 +4,7 @@ import { BrowserRouter } from 'react-router-dom';
 import { PayPalScriptProvider } from '@paypal/react-paypal-js';
 import App from './App';
 import { CartProvider } from './context/CartContext';
+import { LanguageProvider } from './context/LanguageContext';
 import './index.css';
 
 const container = document.getElementById('root');
@@ -19,9 +20,11 @@ root.render(
   <React.StrictMode>
     <PayPalScriptProvider options={paypalOptions}>
       <BrowserRouter>
-        <CartProvider>
-          <App />
-        </CartProvider>
+        <LanguageProvider>
+          <CartProvider>
+            <App />
+          </CartProvider>
+        </LanguageProvider>
       </BrowserRouter>
     </PayPalScriptProvider>
   </React.StrictMode>

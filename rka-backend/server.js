@@ -3,7 +3,7 @@ const crypto = require("crypto");
 const express = require("express");
 const cors = require("cors");
 const { PRODUCTS, priceCartItems } = require("./products");
-const { notifyOrderCompleted } = require("./notifications");
+const { notifyOrderCompleted, notifyContactInquiry, sheetsConfigured, emailConfigured } = require("./notifications");
 
 const app = express();
 
@@ -205,6 +205,28 @@ app.post("/api/toss/confirm", async (req, res) => {
   } catch (error) {
     console.error("Failed to confirm Toss payment:", error);
     res.status(500).json({ error: "Failed to confirm payment." });
+  }
+});
+
+/**
+ * Contact form submissions (Projects/Furniture/Items inquiry + email + message).
+ * Recorded to Google Sheets and/or emailed — the RKA AI 직원 desktop app polls
+ * the same sheet to draft replies, which a person approves before sending.
+ */
+app.post("/api/contact", async (req, res) => {
+  try {
+    const { category, email, message } = req.body;
+    if (!category || !email || !message) {
+      return res.status(400).json({ error: "문의 유형, 이메일, 문의 내용을 모두 입력해 주세요." });
+    }
+    if (!sheetsConfigured && !emailConfigured) {
+      return res.status(503).json({ error: "문의 접수 기능이 아직 설정되지 않았습니다." });
+    }
+    await notifyContactInquiry({ timestamp: new Date().toISOString(), category, email, message });
+    res.json({ ok: true });
+  } catch (error) {
+    console.error("Failed to record contact inquiry:", error);
+    res.status(500).json({ error: "문의 접수에 실패했습니다." });
   }
 });
 
