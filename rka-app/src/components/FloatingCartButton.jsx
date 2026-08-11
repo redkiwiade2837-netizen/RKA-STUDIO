@@ -8,13 +8,13 @@ export default function FloatingCartButton() {
   const { cartCount } = useCart();
   const location = useLocation();
 
-  if (HIDDEN_ON.includes(location.pathname)) return null;
+  if (HIDDEN_ON.includes(location.pathname) || cartCount === 0) return null;
 
   return (
     <Link
       to="/cart"
       aria-label="shopping_cart"
-      className="fixed bottom-6 right-6 z-50 flex items-center justify-center w-14 h-14 rounded-full bg-primary text-on-primary shadow-lg hover:bg-secondary transition-colors"
+      className="fixed bottom-16 right-6 z-50 flex items-center justify-center w-14 h-14 rounded-full bg-primary text-on-primary shadow-lg hover:bg-secondary transition-colors"
     >
       <span className="material-symbols-outlined" style={{fontVariationSettings: "'FILL' 0"}}>shopping_cart</span>
       {cartCount > 0 && (
