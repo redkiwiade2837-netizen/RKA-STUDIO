@@ -2,20 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { projects } from '../data/data';
 import { useLanguage } from '../context/LanguageContext';
-
-// Data Arrays from original design
-const photos = [
-  "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80",
-  "https://images.unsplash.com/photo-1600607687931-ceeb66d11262?auto=format&fit=crop&q=80",
-  "https://images.unsplash.com/photo-1600566753086-00f18efc2291?auto=format&fit=crop&q=80"
-];
-
-const drawings = [
-  "https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&q=80",
-  "https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&q=80",
-  "https://images.unsplash.com/photo-1541888086925-0c1157b85e05?auto=format&fit=crop&q=80",
-  "https://images.unsplash.com/photo-1503387837-b154d5074bd2?auto=format&fit=crop&q=80"
-];
+import placeholder from '../assets/placeholder.svg';
 
 export default function GalleryDetail() {
   const [photoIndex, setPhotoIndex] = useState(0);
@@ -28,6 +15,11 @@ export default function GalleryDetail() {
   const project = projects.find(p => p.id === id);
   const title = project ? project.title : 'PROJECT TITLE';
   const number = project ? `OFFICE ${project.number}` : 'OFFICE 417';
+
+  // Left/Right numbered files ("1", "2"...) become the cycling gallery;
+  // projects that don't use that convention yet just cycle a single image.
+  const photos = project?.photos?.length ? project.photos : [project?.img || placeholder];
+  const drawings = project?.drawings?.length ? project.drawings : [project?.imgHover || placeholder];
 
   const cyclePhoto = () => {
     setPhotoIndex((prev) => (prev + 1) % photos.length);

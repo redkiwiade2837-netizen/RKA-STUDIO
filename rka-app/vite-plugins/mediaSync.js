@@ -17,15 +17,48 @@ const CATEGORIES = [
 
 const FOLDER_NAME_RE = /^(\d+)\s+(.+)$/;
 const IMAGE_RE = /\.(jpe?g|png|webp|gif|avif)$/i;
+// A file named like "(.1.).jpg" marks the thumbnail shown on the index card
+// (and its hover swap) — kept separate from the numbered sequence below so
+// picking a thumbnail doesn't also consume slot 1 of the gallery.
+const MARKER_RE = /^\(\.\d+\.\)$/;
+// Files named "1", "2", "10"... form the ordered gallery for the detail
+// page. Sorted numerically — plain alphabetical sort would put "10" before
+// "2".
+const NUMBERED_RE = /^\d+$/;
 
-function findFirstImage(dir) {
-  if (!fs.existsSync(dir)) return null;
+function stripExt(filename) {
+  return filename.replace(/\.[^.]+$/, '');
+}
+
+// Splits a folder's images into: the single marker file used as the index
+// thumbnail, and the numerically-ordered sequence used for gallery cycling.
+function readImageFolder(dir) {
+  if (!fs.existsSync(dir)) return { marker: null, sequence: [] };
+
   const files = fs
     .readdirSync(dir, { withFileTypes: true })
     .filter((d) => d.isFile() && IMAGE_RE.test(d.name))
-    .map((d) => d.name)
-    .sort();
-  return files[0] || null;
+    .map((d) => d.name);
+
+  let marker = null;
+  const numbered = [];
+  for (const name of files) {
+    const base = stripExt(name);
+    if (MARKER_RE.test(base)) {
+      if (!marker) marker = name;
+    } else if (NUMBERED_RE.test(base)) {
+      numbered.push({ n: Number(base), name });
+    }
+  }
+  numbered.sort((a, b) => a.n - b.n);
+  const sequence = numbered.map((f) => f.name);
+
+  // No (.N.) marker: fall back to the first numbered file, then to
+  // whatever image sorts first — keeps folders that don't use the marker
+  // convention (e.g. a single unnumbered photo) working as before.
+  if (!marker) marker = sequence[0] || files.slice().sort()[0] || null;
+
+  return { marker, sequence };
 }
 
 function slugify(str) {
@@ -63,28 +96,42 @@ export function mediaSyncPlugin() {
           const [, number, title] = match;
 
           const productDir = path.join(categoryDir, entry.name);
-          const leftFile = findFirstImage(path.join(productDir, 'Left'));
-          const rightFile = findFirstImage(path.join(productDir, 'Right'));
+          const left = readImageFolder(path.join(productDir, 'Left'));
+          const right = readImageFolder(path.join(productDir, 'Right'));
           const slug = `${number}-${slugify(title)}`;
           const destDir = path.join(publicMediaDir, key, slug);
+
+          const hasAnyImage = left.marker || right.marker || left.sequence.length || right.sequence.length;
+          if (hasAnyImage) fs.mkdirSync(destDir, { recursive: true });
 
           let img = null;
           let imgHover = null;
 
-          if (leftFile || rightFile) fs.mkdirSync(destDir, { recursive: true });
-
-          if (leftFile) {
-            const ext = path.extname(leftFile);
-            fs.copyFileSync(path.join(productDir, 'Left', leftFile), path.join(destDir, `left${ext}`));
+          if (left.marker) {
+            const ext = path.extname(left.marker);
+            fs.copyFileSync(path.join(productDir, 'Left', left.marker), path.join(destDir, `left${ext}`));
             img = `/media/${key}/${slug}/left${ext}`;
           }
-          if (rightFile) {
-            const ext = path.extname(rightFile);
-            fs.copyFileSync(path.join(productDir, 'Right', rightFile), path.join(destDir, `right${ext}`));
+          if (right.marker) {
+            const ext = path.extname(right.marker);
+            fs.copyFileSync(path.join(productDir, 'Right', right.marker), path.join(destDir, `right${ext}`));
             imgHover = `/media/${key}/${slug}/right${ext}`;
           }
 
-          products.push({ number, title, img, imgHover });
+          const photos = left.sequence.map((name, i) => {
+            const ext = path.extname(name);
+            const destName = `left-${i + 1}${ext}`;
+            fs.copyFileSync(path.join(productDir, 'Left', name), path.join(destDir, destName));
+            return `/media/${key}/${slug}/${destName}`;
+          });
+          const drawings = right.sequence.map((name, i) => {
+            const ext = path.extname(name);
+            const destName = `right-${i + 1}${ext}`;
+            fs.copyFileSync(path.join(productDir, 'Right', name), path.join(destDir, destName));
+            return `/media/${key}/${slug}/${destName}`;
+          });
+
+          products.push({ number, title, img, imgHover, photos, drawings });
         }
       }
 

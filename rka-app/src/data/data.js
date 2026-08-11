@@ -15,12 +15,14 @@ const projectsMeta = {
   371: { location: 'Stockholm', year: '2022', type: 'Research', status: 'Production' },
 };
 
-export const projects = projectsMedia.map(({ number, title, img, imgHover }) => ({
+export const projects = projectsMedia.map(({ number, title, img, imgHover, photos, drawings }) => ({
   id: `p${number}`,
   number,
   title,
   img,
   imgHover,
+  photos,
+  drawings,
   ...projectsMeta[number],
 }));
 
