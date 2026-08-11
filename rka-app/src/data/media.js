@@ -8,7 +8,7 @@ import manifest from './media.generated.json';
 
 function withPlaceholders(products) {
   return products
-    .map(({ number, title, img, imgHover, photos, drawings, type }) => ({
+    .map(({ number, title, img, imgHover, photos, drawings, type, year }) => ({
       number,
       title,
       img: img || placeholder,
@@ -17,9 +17,11 @@ function withPlaceholders(products) {
       // detail-page cycling — empty unless the folder uses "1", "2"... files.
       photos: photos || [],
       drawings: drawings || [],
-      // From an optional "(Type)" suffix on the folder name, e.g.
-      // "001 Plan House (Housing)" -> type: "Housing". null if omitted.
+      // From an optional "(Type, Year)" suffix on the folder name, e.g.
+      // "001 Plan House (Housing, 2024)" -> type: "Housing", year: "2024".
+      // Either part (or the whole suffix) can be omitted.
       type: type || null,
+      year: year || null,
     }))
     .sort((a, b) => Number(b.number) - Number(a.number));
 }

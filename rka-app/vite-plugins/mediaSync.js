@@ -15,9 +15,24 @@ const CATEGORIES = [
   ['Items', 'items'],
 ];
 
-// "001 Plan House (Housing)" -> number/title/type. The "(Type)" suffix is
-// optional — "003 Heeyun" is still valid, just with no type.
+// "001 Plan House (Housing, 2024)" -> number/title/type/year. The
+// "(Type, Year)" suffix is optional and each part inside it is too —
+// "003 Heeyun" or "003 Heeyun (2024)" or "003 Heeyun (Housing)" all work.
 const FOLDER_NAME_RE = /^(\d+)\s+(.+?)(?:\s*\(([^)]+)\))?$/;
+const YEAR_RE = /^\d{4}$/;
+
+// Splits the "(...)" suffix into type/year, in either order, either
+// optional: "Housing, 2024", "2024, Housing", "Housing", "2024" all parse.
+function parseTypeYear(meta) {
+  if (!meta) return { type: null, year: null };
+  let type = null;
+  let year = null;
+  for (const part of meta.split(',').map((s) => s.trim()).filter(Boolean)) {
+    if (YEAR_RE.test(part)) year = part;
+    else if (!type) type = part;
+  }
+  return { type, year };
+}
 const IMAGE_RE = /\.(jpe?g|png|webp|gif|avif)$/i;
 // A file named like "(.1.).jpg" marks the thumbnail shown on the index card
 // (and its hover swap) — kept separate from the numbered sequence below so
@@ -95,7 +110,8 @@ export function mediaSyncPlugin() {
         for (const entry of entries) {
           const match = entry.name.match(FOLDER_NAME_RE);
           if (!match) continue;
-          const [, number, title, type] = match;
+          const [, number, title, meta] = match;
+          const { type, year } = parseTypeYear(meta);
 
           const productDir = path.join(categoryDir, entry.name);
           const left = readImageFolder(path.join(productDir, 'Left'));
@@ -133,7 +149,7 @@ export function mediaSyncPlugin() {
             return `/media/${key}/${slug}/${destName}`;
           });
 
-          products.push({ number, title, img, imgHover, photos, drawings, type: type || null });
+          products.push({ number, title, img, imgHover, photos, drawings, type: type || null, year: year || null });
         }
       }
 

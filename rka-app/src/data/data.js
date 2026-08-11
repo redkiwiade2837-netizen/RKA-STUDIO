@@ -15,7 +15,7 @@ const projectsMeta = {
   371: { location: 'Stockholm', year: '2022', type: 'Research', status: 'Production' },
 };
 
-export const projects = projectsMedia.map(({ number, title, img, imgHover, photos, drawings, type }) => ({
+export const projects = projectsMedia.map(({ number, title, img, imgHover, photos, drawings, type, year }) => ({
   id: `p${number}`,
   number,
   title,
@@ -24,9 +24,10 @@ export const projects = projectsMedia.map(({ number, title, img, imgHover, photo
   photos,
   drawings,
   ...projectsMeta[number],
-  // A "(Type)" suffix on the folder name wins over projectsMeta's type,
-  // so re-tagging a project is just a folder rename.
+  // A "(Type, Year)" suffix on the folder name wins over projectsMeta's
+  // values, so re-tagging a project is just a folder rename.
   ...(type ? { type } : {}),
+  ...(year ? { year } : {}),
 }));
 
 const furnitureMeta = {
