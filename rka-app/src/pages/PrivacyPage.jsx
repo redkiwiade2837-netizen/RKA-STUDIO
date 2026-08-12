@@ -108,7 +108,7 @@ export default function PrivacyPage() {
             <p className="font-body text-body whitespace-pre-line">{s.body}</p>
           </div>
         ))}
-        <p className="font-body text-body text-text-muted">Addendum: This Policy takes effect on August 12, 2026.</p>
+        <p className="font-body text-body text-text-muted">Addendum: This Policy takes effect on August 3, 2026.</p>
       </section>
 
       <section className="flex flex-col gap-section-gap border-t border-border-subtle pt-section-gap">
@@ -120,7 +120,7 @@ export default function PrivacyPage() {
             <p className="font-body text-body whitespace-pre-line">{s.body}</p>
           </div>
         ))}
-        <p className="font-body text-body text-text-muted">부칙: 본 방침은 2026년 8월 12일부터 시행합니다.</p>
+        <p className="font-body text-body text-text-muted">부칙: 본 방침은 2026년 8월 3일부터 시행합니다.</p>
       </section>
     </div>
   );
