@@ -74,7 +74,7 @@ const ARTICLES_EN = [
 function CompanyBlockKR() {
   return (
     <div className="flex flex-col gap-1 font-body text-body text-text-muted">
-      <p>부칙: 본 약관은 2026년 8월 12일부터 시행합니다.</p>
+      <p>부칙: 본 약관은 2026년 8월 3일부터 시행합니다.</p>
       <p className="mt-stack-gap">
         상호: {COMPANY_INFO.name}<br />
         대표자: {COMPANY_INFO.rep}<br />
@@ -90,7 +90,7 @@ function CompanyBlockKR() {
 function CompanyBlockEN() {
   return (
     <div className="flex flex-col gap-1 font-body text-body text-text-muted">
-      <p>Addendum: These Terms take effect on August 12, 2026.</p>
+      <p>Addendum: These Terms take effect on August 3, 2026.</p>
       <p className="mt-stack-gap">
         Company: {COMPANY_INFO.nameEn}<br />
         Representative: {COMPANY_INFO.repEn}<br />
