@@ -12,8 +12,8 @@ export default function Footer() {
         <Link to="/contact" className="font-caption text-caption text-primary hover:text-secondary transition-colors">{t('footer.contact')}</Link>
       </div>
       <div className="flex gap-4">
-        <Link to="#" className="font-caption text-caption text-primary hover:text-secondary transition-colors">{t('footer.terms')}</Link>
-        <Link to="#" className="font-caption text-caption text-primary hover:text-secondary transition-colors">{t('footer.privacy')}</Link>
+        <Link to="/terms" className="font-caption text-caption text-primary hover:text-secondary transition-colors">{t('footer.terms')}</Link>
+        <Link to="/privacy" className="font-caption text-caption text-primary hover:text-secondary transition-colors">{t('footer.privacy')}</Link>
       </div>
     </footer>
   );

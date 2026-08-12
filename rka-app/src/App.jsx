@@ -19,6 +19,8 @@ import CheckoutPage from './pages/CheckoutPage';
 import OrderConfirmation from './pages/OrderConfirmation';
 import TossSuccessPage from './pages/TossSuccessPage';
 import TossFailPage from './pages/TossFailPage';
+import TermsPage from './pages/TermsPage';
+import PrivacyPage from './pages/PrivacyPage';
 
 function App() {
   return (
@@ -40,6 +42,8 @@ function App() {
           <Route path="/order-confirmation" element={<OrderConfirmation />} />
           <Route path="/toss/success" element={<TossSuccessPage />} />
           <Route path="/toss/fail" element={<TossFailPage />} />
+          <Route path="/terms" element={<TermsPage />} />
+          <Route path="/privacy" element={<PrivacyPage />} />
         </Routes>
       </main>
       <Footer />
